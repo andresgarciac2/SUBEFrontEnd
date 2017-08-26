@@ -1,0 +1,136 @@
+/*responsive jul*/
+
+@media only screen and (max-width: 1600px) {
+}
+@media only screen and (max-width: 1200px) {
+}
+@media only screen and (max-width: 1024px) {
+}
+@media only screen and (max-width: 930px) {
+}
+@media only screen and (max-width: 767px) {
+	/*login*/
+	.contLog .headLog{
+		margin: 0 0 20px 0;
+	}
+	.contLog h1{
+		margin: 0;
+		font-size: 26px;
+	}
+	.contLog p{
+		font-size: 16px;
+	}
+	.contLog .boxLog{
+		margin:50px 0 0 0;
+	}
+	.foolog{
+		position:relative !important;
+	}
+	/*home*/
+	.home_titCont{
+		padding: 0 30px;
+	}
+	.home_titCont h1{
+		text-align: center;
+	}
+	.home_titCont p{
+		text-align: center;
+	}
+	.home_titCont .btnHome{
+		text-align: center;
+	}
+	.home_cont .lineHi{
+		display: block;
+	}
+	/*todo*/
+	.navTop .navbar-header{
+		padding:3px 0;
+	}
+	.navTop .navbar-header .navbar-toggle{
+		float: left;
+		color: #FFFFFF;
+		font-size: 10px;
+		padding: 0 0 0 15px;
+	}
+	.navTop .navbar-collapse{
+		padding: 0;
+	}
+	.navTop .navbar-collapse .navbar-nav{
+		margin: 0;
+	}
+	.navTop .navbar-collapse .navbar-nav:before,
+	.navTop .navbar-collapse .navbar-nav li:before{
+		display: none;
+	}
+	.navTop .navbar-collapse .navbar-nav .open .dropdown-menu > li > a{
+		color: #FFFFFF;
+	}
+	.contGen .migaDownlo .contMiga{
+		display:none;
+	}
+	.contGen .contBusca{
+		padding: 0 20px;
+	}
+
+	/*interna productos*/
+	.intMenu{
+		display:none;
+	}
+	.sucuCont hr.respo {
+		display: block;
+		margin: 20px 15px;
+	}
+	
+	
+}
+@media only screen and (max-width: 600px) {
+	/*interna productos*/
+	.sucuCont .sucuOne .box1{
+		width: 100%;
+		display: block;
+	}
+	.sucuCont .sucuOne .box2{
+		width: 100%;
+		display: block;
+		padding: 20px 15px;
+	}
+}
+}
+@media only screen and (max-width: 480px) {
+	/*home*/
+	.home_titCont h1{
+		font-size: 30px;
+	}
+	.home_cont h2{
+		font-size: 30px;
+	}
+	/*todo*/
+	.contGen .migaDownlo .downlo,
+	.contGen .migaDownlo .downlo .btn-group,
+	.contGen .migaDownlo .downlo .btn-group .dropdown-menu,
+	.contGen .migaDownlo .downlo button{
+		width:100%;
+		text-align: center;
+	}
+	/*interna productos*/
+	.intProduc ul li{
+		width: 100%;
+	}
+	.intProduc .btnProd button:first-child {
+    	margin: 0 0 10px 0;
+	}
+	.intProduc .btnProd button{
+		width: 100%;
+		margin: 0 0 10px 0;
+	}
+
+}
+@media only screen and (max-width: 320px) {
+	footer.foQbe ul li{
+		width: 100%;
+		margin: 3px 0;
+	}
+	footer.foQbe ul li::before{
+		display: none;
+	}
+}

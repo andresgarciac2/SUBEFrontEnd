@@ -1,0 +1,49 @@
+<span id="numeroPoliza" hidden>{{vm.policyNo}}</span>
+<script>
+    
+    var generatePDF = function() {
+        
+        var contentDiv = document.getElementById('exportableData');
+
+        var printableDiv = document.createElement('div');
+        document.getElementsByClassName('cont')[0].appendChild(printableDiv); // Con estilos
+        //document.getElementsByClassName('contGen')[0].appendChild(printableDiv); // Sin estilos
+        printableDiv.id = "printableDiv";
+
+
+        var header = "<h1> Detalle de Póliza </h1>";
+        var footer = "<p style='text-align: center'>* Este documento y la información que contiene es de carácter exclusivamente informativo, por lo tanto no tiene validez para realizar trámites o solicitudes de ninguna índole, como tampoco implica la aceptación de vínculo jurídico o contractual alguno por parte de QBE. En caso de discrepancia entre la información aquí contenida y el contrato de seguro, la carátula de la póliza, el slip de cotización, las condiciones generales o particulares, primara la información incluida en estos últimos documentos.</p>";
+        printableDiv.innerHTML = header +  contentDiv.innerHTML.replace('<div style="min-height: 50px; max-height: 700px; overflow: auto">','<div>') + footer;
+
+        var width = 1350;
+        var heigth = (width/612) * 792;
+
+        kendo.pdf.defineFont({
+            "DejaVu Sans":
+                "assets/fonts/DejaVuSans.ttf",
+            "DejaVu Sans|Bold":
+                "assets/fonts/DejaVuSans-Bold.ttf",
+            "DejaVu Sans|Italic":
+                "assets/fonts/DejaVuSans-Oblique.ttf",
+            "DejaVu Sans|Bold|Italic":
+                "assets/fonts/DejaVuSans-Oblique.ttf"
+            });
+
+        kendo.drawing.drawDOM($('#printableDiv'), {
+            paperSize: [width + 'pt', heigth + 'pt'],
+            multiPage: true,
+            subject: 'Detalle de Póliza',
+            date: new Date(),
+            margin: {
+                left   : "0.5cm",
+                top    : "0.5cm",
+                right  : "0.5cm",
+                bottom : "0.5cm"
+            }
+        } ).then(function(group) {
+            kendo.drawing.pdf.saveAs(group, 'Detalle de Póliza ' + document.getElementById("numeroPoliza").innerHTML + '.pdf');
+        });
+        printableDiv.innerHTML = "";
+        document.getElementsByClassName('cont')[0].removeChild(printableDiv);
+    }
+</script>

@@ -1,0 +1,69 @@
+{
+  "action": {
+    "accept": "Aceptar",
+    "close": "Cerrar",
+    "edit": "Editar",
+    "next": "Siguiente",
+    "select": "Seleccionar...",
+    "send": "Enviar",
+    "update": "Actualizar",
+    "loginButton" : "Iniciar sesión",
+    "registerButton" : "Registrar",
+    "forgotPassword" : "¿Olvidaste tu contraseña?",
+    "sendEmailRequest" : "Enviar correo",
+    "repeatPassword" : "Confirmar contraseña"
+  },
+  "validation" : {
+    "alphabetic": "{{val}} acepta caracteres alfabéticos",
+    "alphanumeric": "{{val}} acepta caracteres alfanuméricos",
+    "email" : "Este campo debe ser un correo válido.",
+    "invalid": {
+      "date": "La fecha seleccionada es inválida",
+      "email": "Email inválido",
+      "general": "Información inválida",
+      "password": "Contraseña inválida"
+    },
+    "match": "Este campo no coincide con {{val}}.",
+    "matchPassword": "Las contraseñas no coinciden.",
+    "max": {
+      "characters": "Se requieren máximo {{num}} caracteres",
+      "digits": "Se requieren máximo {{num}} dígitos",
+      "value" : "El valor indicado debe ser menor o igual a {{val}}."
+    },
+    "min": {
+      "characters": "Se requieren mínimo {{num}} caracter(es)",
+      "date": "La fecha de nacimiento debe ser mayor a {{num}} año(s)",
+      "digits": "Se requieren mínimo {{num}} dígito(s)",
+      "value" : "El valor debe ser mayor o igual a {{val}}."
+    },
+    "numeric": "Este campo únicamente acepta dígitos",
+    "pattern" : "Este campo no cumple con el formato esperado.",
+    "required": "Este campo es requerido.",
+    "termsAndConditions": "Debe aceptar los términos y condiciones para continuar"
+  },
+  "form" : {
+    "appTitle" : "QBE - Portal de Servicios al Intermediario",
+    "mainTitle" : "Portal de Servicios al Intermediario",
+    "mainText" : "Tu negocio a un click de distancia. En QBE siempre más y mejores servicios para ti.",
+    "titleForm" : "Para iniciar sesión ingresa tu Usuario y Contraseña",
+    "titleBottomForm" : "Si aún no tienes Usuario comunícate con nuestra<br>Línea de Servicio 018000 112 723<br>Lunes a Viernes de 8:00 a.m. a 5:00 p.m.",
+    "titleFormEmailRequest" : "Ingrese su correo para el envío de link de cambio",
+    "titleFormResetPass" : "CAMBIO DE CONTRASEÑA",
+    "titleFormRegister" : "REGISTRO DE USUSARIO",
+    "firstName" : "Nombres",
+    "lastName" : "Apellidos",
+    "email" : "Usuario",
+    "emailForLink" : "Correo",
+    "password" : "Contraseña",
+    "newPassword1" : "Nueva contraseña",
+    "newPassword2" : "Confirme contraseña",
+    "success.title" : "Registro exitoso",
+    "success.message" : "Su registro en el formulario fue realizado exitosamente!",
+    "error.title" : "Error al registrar",
+    "error.message" : "No se pudo registrar la persona.",
+    "locale" : "QBE País",
+    "privacyPolicies" : "políticas de privacidad y uso",
+    "termsAndConditions" : "términos y condiciones",
+    "forgotPassword" : "¿Olvidaste tu contraseña?"
+  }
+}

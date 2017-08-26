@@ -1,0 +1,162 @@
+    <nav class="navbar navbar-default navbar-static-top navTop">
+      <div class="container">
+       <div class="notiPerf">
+				<div ng-if="false" class="not">3 Notificaciones <span class="glyphicon glyphicon-bell"></span></div>
+				<div class="perf" ng-if=  "vm.JWTtoken.currentRole != null">
+					<div class="dropdown">
+						<a class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span><img src="assets/images/img_perfil.jpg" alt=""/></span></a>
+						<ul class="dropdown-menu dropdown-menu-right">
+              <li><h3>{{vm.JWTtoken.response.data.email}}</h3><p>{{vm.JWTtoken.currentRole}}</p></li>
+              <li><button class="btn" type="button" ng-click="vm.goToLogin()">Cerrar sesión</button></li>
+						</ul>
+					</div>
+				</div>
+			</div><!--/notiPerf-->
+        
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            Información general <span class="caret"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+			  <ul class="nav navbar-nav">
+
+          <li><a ng-if="vm.JWTtoken.currentRole == null"><empty>_________________________________</empty></a></li>
+
+			    <li ng-if="false" class="dropdown" ng-show="vm.JWTtoken.currentRole != null">
+				    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Información Gerencial <span class="caret"></span></a>
+				    <ul class="dropdown-menu">
+					    <li><a ng-click="vm.goToGeneralInfo('production')" href="#">Producción</a></li>
+					    <li><a ng-click="vm.goToGeneralInfo('portfolio')" href="#">Portafolio</a></li>
+					    <li><a ng-click="vm.goToGeneralInfo('cartera')" href="#">Cartera</a></li>
+					    <li><a ng-click="vm.goToGeneralInfo('compensation')" href="#">Indemnizaciones</a></li>
+					    <li><a ng-click="vm.goToGeneralInfo('commissions')" href="#">Comisiones e incentivos</a></li>
+				    </ul>
+				  </li>
+          <li class="dropdown" ng-show="vm.JWTtoken.currentRole != null">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nuestros productos <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" ng-click="vm.goToProduct('motor')"><span class="ic mot"></span> Motor</a></li>
+              <li><a href="#" ng-click="vm.goToProduct('casuality')"><span class="ic cas"></span> Casualty & Financial Lines</a></li>
+              <li><a href="#" ng-click="vm.goToProduct('property')"><span class="ic pro"></span> Property</a></li>
+              <li><a href="#" ng-click="vm.goToProduct('marine')"><span class="ic mar"></span> Marine</a></li>
+              <li><a href="#" ng-click="vm.goToProduct('lifeAccidents')"><span class="ic vid"></span> Vida y accidentes personales</a></li>              
+            </ul>
+          </li>
+				  <li ng-show="vm.JWTtoken.currentRole != null"><a href="lossControl" >Loss control</a></li>          
+			  </ul>
+        </div><!--/.nav-collapse --> 
+		</div>     
+    </nav>
+    
+    <!--nav2-->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+       
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a ng-click = "vm.goToHome()" class="navbar-brand" href="#"><img src="assets/images/logo_qbe.png" alt="Logo QBE"/></a>
+        </div>
+
+        <div id="navbar2" class="navbar-collapse collapse">
+          
+          <!--nav broker-->
+          <ul class="nav navbar-nav navbar-right" ng-show="vm.JWTtoken.currentRole == 'Intermediario'">
+            <li ng-click="vm.goToPoliciesList()"><a href="#">Servicios de pólizas</a></li>
+            <li><a href="#">Seguimiento a solicitudes</a></li>
+            <!--li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Indemnizaciones <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Siniestros pagados y pendientes</a></li>
+                <li><a href="#">Radicar siniestros</a></li>
+                <li><a href="#">Seguimiento a reparación de vehículos</a></li>
+                <li><a href="#">Seguimiento a siniestros</a></li>
+                <li><a href="#">Solicitar certificados</a></li>
+                <li><a href="#">Consulta de talleres</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cartera <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Consulta pagos</a></li>
+                <li><a href="#">Consulta cartera</a></li>
+                <li><a href="#">Certificado al día</a></li>
+                <li><a href="#">Certificado anualidad</a></li>
+                <li><a href="#">Realizar pagos SOAT</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Comisiones <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Consulta</a></li>
+                <li><a href="#">Certificaciones</a></li>
+                <li><a href="#">Control de facturación</a></li>
+                <li><a href="#">Calendario de pagos</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Clientes</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Certificados <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+               <li class="dropdown-header">Sobre póliza</li>
+                <li><a href="#">Vigencia actual</a></li>
+                <li><a href="#">Vigencia anterior</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Sobre indemnizaciones</li>
+                <li><a href="#">Siniestros pagados y pendientes</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">De cartera</li>
+                <li><a href="#">Al día</a></li>
+                <li><a href="#">Anualidad</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Producción comisiones e incentivos</li>
+                <li><a href="#">Gestión administrativa pagada</a></li>
+                <li><a href="#">Gestión administrativa recaudada</a></li>
+                <li><a href="#">Gestión comisiones recaudada</a></li>
+              </ul>
+            </li-->
+          </ul>
+
+
+          <!--nav administrator-->
+          <ul class="nav navbar-nav navbar-right" ng-show="vm.JWTtoken.currentRole == 'Administrador'">
+            <li ng-click="vm.goToBrokersList()"><a href="#">Administración de usuarios</a></li>             
+          </ul>
+
+
+
+          <!--nav superadministrator-->
+          <ul class="nav navbar-nav navbar-right" ng-show="vm.JWTtoken.currentRole == 'Superadministrador'">
+            <li ng-click="vm.goToAdministratorsList()"><a href="#">Administración de usuarios</a></li>                   
+          </ul>
+
+
+
+
+        </div><!--/.nav-collapse -->
+        
+          <div ng-if = "vm.sectionTitle != undefined" class="titPrin"><h1>{{vm.sectionTitle}}</h1></div>
+        
+      </div>
+    </nav>
+
+<script>
+    $(function(){
+   $(".dropdown").hover(            
+           function() {
+               $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+               $(this).toggleClass('open');
+               $('b', this).toggleClass("caret caret-up");                
+           },
+           function() {
+               $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+               $(this).toggleClass('open');
+               $('b', this).toggleClass("caret caret-up");                
+           });
+   });
+	</script> 

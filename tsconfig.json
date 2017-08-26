@@ -1,0 +1,14 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "classic",
+    "baseUrl": "src/app"
+  },
+  "exclude": [
+    "node_modules",
+    "bower_components",
+    "typings"
+  ]
+}

@@ -1,0 +1,15 @@
+
+<div class="errorMessage" role="alert"
+     ng-show="field.$invalid && (field.$touched || field.$dirty || form.$triedSubmit)"
+     ng-messages="field.$error">
+  <span ng-message="required" translate>validation.required</span>
+  <span ng-message="email" translate>validation.email</span>
+  <span ng-message="number" translate>validation.numeric</span>
+  <span ng-message="pattern" translate>validation.pattern</span>
+  <span ng-message="ngFabMatch" translate>validation.matchPassword</span> <!-- {{'validation.match' | translate:'{val: '+ matchField +'}'}} -->
+  <span ng-message="minlength">{{'validation.min.characters' | translate:'{val: '+ attrs.minlength +'}'}}</span>
+  <span ng-message="min">{{'validation.min.value' | translate:'{val: '+ attrs.min +'}'}}</span>
+  <span ng-message="maxlength">{{'validation.max.characters' | translate:'{val: '+ attrs.maxlength +'}'}}</span>
+  <span ng-message="max">{{'validation.max.value' | translate:'{num: '+ attrs.max +'}'}}</span>
+</div>
+
