@@ -42,11 +42,6 @@ export default class LoginController implements ng.IComponentController {
 
   submit(): void
   {
-      if( this.$scope.loginForm.$valid == false )
-      {
-        return;
-      }
-
       var standardDelay = 1000;
       var defer = this.$q.defer();
       var that = this;

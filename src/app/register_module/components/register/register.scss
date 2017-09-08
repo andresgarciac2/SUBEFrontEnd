@@ -1,0 +1,48 @@
+@import '../../../sass/_variables';
+@import '../../../sass/_mixins';
+.main {
+    align-items: center;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    overflow: auto;
+    form {
+        border: solid 1px $blue_border;
+        max-width: 75%;
+        min-width: 568px;
+        header {
+            font-weight: bold;
+            font-size: $font-md;
+            height: 30px;
+            line-height: 30px;
+            padding: 5px;
+        }
+        section {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 10px;
+            .item {
+                display: flex;
+                flex: 0 0 50%;
+                flex-direction: column;
+                margin: 5px 0px;
+                label {
+                    display: inline-block;
+                    font-weight: bold;
+                    line-height: 30px;
+                }
+                input[type='text'],
+                input[type='password'],
+                input[type='number'],
+                select {
+                    flex: 1;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    .button-cotainer {
+        margin: 10px;
+    }
+}

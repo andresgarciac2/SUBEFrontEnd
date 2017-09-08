@@ -1,5 +1,5 @@
-@import '../../../sass/_variables';
-@import '../../../sass/_mixins';
+@import '/sass/_variables';
+@import '/sass/_mixins';
 .login-container {
     align-items: center;
     background-color: $blue_second;
@@ -10,7 +10,6 @@
     opacity: 0.9;
     overflow: hidden;
     width: 100%;
-    position: absolute;
     button:hover {
         opacity: 1;
         color: $blue_light;

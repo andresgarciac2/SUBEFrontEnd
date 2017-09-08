@@ -15,7 +15,7 @@ import run from './app.run';
 
 angular.module('app', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngMessages',
     'ngSanitize', 'ngAria', 'angular-cache', 'angularPromiseButtons',
-    'toastr', 'pascalprecht.translate', 'ui.router', 'ngFabForm', 'rx','ngTable','ngStorage', 'mwl.confirm','ngMaterial',
+    'toastr', 'pascalprecht.translate', 'ui.router', 'ngFabForm', 'rx','ngStorage',
     common.name, login_module.name, register_module.name,home_module.name])
   .constant('environment', environment)
   .constant('moment', moment)

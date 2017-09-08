@@ -1,0 +1,7 @@
+@mixin border_radius($round) {
+    border-radius: $round;
+}
+
+@mixin border_radius_all($top-left, $top-right, $botom-right, $botom-left) {
+    border-radius: $top-left $top-right $botom-right $botom-left;
+}

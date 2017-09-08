@@ -105,7 +105,7 @@ export default class RegisterController implements ng.IComponentController {
         country: this.oferente.pais,
         email: this.oferente.email,
         firstName: this.oferente.nombres,
-        lastName: this.oferente.apellidos,
+        lastName: this.oferente.apellidos !== undefined ? this.oferente.apellidos:".",
         address: this.oferente.direccion,
         phone: this.oferente.telefono,
         password: this.oferente.contrasena,

@@ -1,0 +1,23 @@
+
+<h1 class="md-display-2">Login</h1>
+<div layout="row" layout-align="center">
+<form name="loginForm" ng-hide="vm.showRoleComboBox == true" method="GET" ng-fab-form promise-btn >
+    <md-card flex="70">
+        <md-card-content  layout="column" layout-align="center center" >
+         <md-input-container flex="100">
+             <label>Usuario</label>
+             <input type="text" ng-model="vm.user">
+         </md-input-container>
+         <md-input-container flex="100">
+             <label>Contraseña</label>
+             <input type="password" ng-model="vm.password">
+         </md-input-container>
+         <md-button class="md-raised md-primary" flex="100" ng-click="vm.submit()">Ingresar</md-button>    
+     </md-card-content>
+     <md-card-actions layout="row" layout-align="center center">
+         <md-button md-no-ink class="md-primary">¿Olvidaste tu contraseña?</md-button>
+         <md-button ng-click="vm.register()" class="md-primary">Registrate aquí</md-button>
+     </md-card-actions>
+</md-card>
+</form>
+</div>  
