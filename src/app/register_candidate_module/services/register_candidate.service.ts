@@ -1,7 +1,7 @@
-import { UserDTO } from 'register_module/dto/userDTO';  
+import { UserDTO } from 'register_candidate_module/dto/userDTO';  
 import { Api } from '../../common/services/api.service'; 
 
-export class RegisterService {
+export class RegisterCandidateService {
 
     public agregarPersonaObservable: any;
     private user: UserDTO;
@@ -29,7 +29,7 @@ export class RegisterService {
 
     public registerUser(userDto: UserDTO)
     {
-        return this.$http.post('http://localhost:8480/create', userDto);
+        return this.$http.post('http://localhost:8481/create', userDto);
     }
     public registerEntity(dto: any)
     {

@@ -1,10 +1,10 @@
 
 import { UserDTO } from "../../dto/userDTO";
-import { RegisterService } from '../../services/register.service';
+import { RegisterOfferentService } from '../../services/register_offerent.service';
 import { RegexPasswordService } from '../../../common/services/regex_password';
 import { ShowMessagesService } from '../../../common/services/show_messages.service';
 
-export default class RegisterController implements ng.IComponentController {
+export default class RegisterOfferentController implements ng.IComponentController {
 
   public username: string = "";  
   public password: string = "";
@@ -35,7 +35,7 @@ export default class RegisterController implements ng.IComponentController {
               private $timeout : ng.ITimeoutService,
               private $scope : any,
               private $state : ng.ui.IStateService,
-              private registerService : RegisterService,
+              private registerOfferentService : RegisterOfferentService,
               private $sessionStorage : any,
               private $q : ng.IQService,
               private regexPasswordService : RegexPasswordService,
@@ -85,7 +85,7 @@ export default class RegisterController implements ng.IComponentController {
         estado : "activo"
       }; 
       var that = this;
-    return this.registerService.registerEntity(request).then((response: any) => {
+    return this.registerOfferentService.registerEntity(request).then((response: any) => {
       response;
     }, (error: any) => {
       let errorMssg: string = "";
@@ -117,7 +117,7 @@ export default class RegisterController implements ng.IComponentController {
       var defer = this.$q.defer();
 
       this.$timeout(function () {
-          that.registerService.registerUser(userDto).then(
+          that.registerOfferentService.registerUser(userDto).then(
             (response: any) => {
               that.$state.go('layout.login'); 
               that.showMessagesService.showInfo('Usuario registrado exitosamente!');
@@ -137,7 +137,7 @@ export default class RegisterController implements ng.IComponentController {
       var that = this;
       this.showLoader = true;
       if(this.$sessionStorage.JWTtoken.currentRole == 'Superadministrador'){
-          this.registerService.getEntity(JSON.parse(this['selectedCompany']).brokerId).then(
+          this.registerOfferentService.getEntity(JSON.parse(this['selectedCompany']).brokerId).then(
             (response: any) => {
                 this.registerUser();
             }, (error) => {
@@ -165,7 +165,7 @@ export default class RegisterController implements ng.IComponentController {
     }
     var that = this;
     this.usuario.identificacion = "CC" + this.document;
-    this.registerService.changeStatus(this.usuario).then((response: any) => {
+    this.registerOfferentService.changeStatus(this.usuario).then((response: any) => {
       this.showMessagesService.showInfo('Usuario editado exitosamente!');
       this.$timeout(function () {
         that.$state.reload();

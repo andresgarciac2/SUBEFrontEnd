@@ -2,8 +2,8 @@
 export default function routes($stateProvider: angular.ui.IStateProvider,
                        $urlRouterProvider: angular.ui.IUrlRouterProvider) {
   $stateProvider
-    .state('layout.login', {
-      url: 'login',
-      template: '<login></login>'
+    .state('layout.registerOfferent', {
+      url: 'registerofferent',
+      template: '<register_offerent></register_offerent>'
     });
 }

@@ -3,7 +3,8 @@ export const unsecuredRoutes: string[] = [
   "slash",
   "layout.404",
   "layout.login",
-  "layout.register",
+  "layout.registerOfferent",
+  "layout.registerCandidate",
   "layout.sacSarlaft",
   "layout.frequentquestions",
   "layout.pqr",
@@ -11,5 +12,6 @@ export const unsecuredRoutes: string[] = [
   "layout.sac_sarlaft",
   "layout.emailRequest",
   "layout.passwordRequest",
-  "layout.passwordSet"
+  "layout.passwordSet",
+  "layout.registerRedirect"
 ];

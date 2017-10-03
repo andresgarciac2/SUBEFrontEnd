@@ -99,7 +99,7 @@ export default class LoginController implements ng.IComponentController {
 
     register():void
     {       
-        this.$state.go('layout.register'); 
+        this.$state.go('layout.registerRedirect'); 
     }
 
 }

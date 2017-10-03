@@ -1,0 +1,80 @@
+@import '../../../sass/_variables';
+@import '../../../sass/_mixins';
+:host(register) {
+    display: flex;
+    flex: 1;
+}
+
+section.main {
+    align-items: center;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: auto;
+    padding: 5px;
+    .test {
+        display: flex;
+        flex: 1;
+        .item {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0px 5px;
+            header {
+                font-size: $font-xxl;
+                margin-bottom: 5px;
+            }
+            .icon {
+                background-color: #d4d4d4;
+                height: 140px;
+                margin-bottom: 5px;
+                width: 140px;
+            }
+            .description {
+                font-size: $font-sm;
+                margin-bottom: 5px;
+            }
+            button {
+                min-width: 120px;
+            }
+        }
+    }
+    form {
+        border: solid 1px $blue_border;
+        max-width: 75%;
+        min-width: 568px;
+        header {
+            font-weight: bold;
+            font-size: $font-md;
+            height: 30px;
+            line-height: 30px;
+            padding: 5px;
+        }
+        section {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 10px;
+            .item {
+                display: flex;
+                flex: 0 0 50%;
+                flex-direction: column;
+                margin: 0px;
+                label {
+                    display: inline-block;
+                    font-weight: bold;
+                    line-height: 30px;
+                }
+                input,
+                select {
+                    flex: 1;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    .button-cotainer {
+        margin: 10px;
+    }
+}

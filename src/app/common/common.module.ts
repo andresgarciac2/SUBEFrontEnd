@@ -18,8 +18,8 @@ let cookieConstants : CookieConstants = {
 
 export default angular.module('app.common', [])
   .component('appRoot', RootComponent)
-  .component('header', HeaderComponent)
-  .component('footer', FooterComponent)
+  .component('headerSube', HeaderComponent)
+  .component('footerSube', FooterComponent)
   .component('topPanel',TopPanelComponent)
   .component('exportPdf',ExportPdfComponent)
   .constant('cookieConstants',cookieConstants)
