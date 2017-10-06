@@ -6,6 +6,7 @@ import login_module from 'login_module/login.module';
 import register_offerent_module from 'register_offerent_module/register_offerent.module';
 import register_candidate_module from 'register_candidate_module/register_candidate.module';
 import register_redirect_module from 'register_redirect_module/register_redirect.module';
+import offert_module from 'offert_module/offert.module';
 import home_module from 'home/home.module';
 
 import {config} from './app.config'
@@ -19,7 +20,7 @@ angular.module('app', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngMessages',
     'ngSanitize', 'ngAria', 'angular-cache', 'angularPromiseButtons',
     'toastr', 'pascalprecht.translate', 'ui.router', 'ngFabForm', 'rx','ngStorage',
     common.name, login_module.name, register_offerent_module.name,home_module.name,register_redirect_module.name,
-    register_candidate_module.name])
+    register_candidate_module.name,offert_module.name])
   .constant('environment', environment)
   .constant('moment', moment)
   .constant('unsecuredRoutes', unsecuredRoutes)

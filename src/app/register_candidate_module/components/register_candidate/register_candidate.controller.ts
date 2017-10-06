@@ -109,7 +109,7 @@ export default class RegisterCandidateController implements ng.IComponentControl
         address: this.aspirante.direccion,
         phone: this.aspirante.telefono,
         password: this.aspirante.contrasena,
-        roleId: this.rolSeleccionado === 'aspirante' ? 2 : 1
+        roleId: this.rolSeleccionado === 'aspirante' ? 1 : 2
       };      
 
       var that = this;

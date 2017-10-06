@@ -1,0 +1,77 @@
+@import '../../../sass/_variables';
+@import '../../../sass/_mixins';
+:host(register) {
+    display: flex;
+    flex: 1;
+}
+
+section.main {
+    align-items: center;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: auto;
+    padding: 5px;
+    form {
+        border: solid 1px $blue_border;
+        max-width: 75%;
+        min-width: 568px;
+        header {
+            font-weight: bold;
+            font-size: $font-md;
+            height: 30px;
+            line-height: 30px;
+            padding: 5px;
+        }
+        section {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 10px;
+            .item,
+            .item-full {
+                display: flex;
+                flex-direction: column;
+                margin: 0px;
+            }
+            .item {
+                height: 60px;
+                flex: 0 0 50%;
+            }
+            .item-full {
+                flex: 0 0 100%;
+            }
+            .item-half {
+                display: flex;
+                flex: 0 0 50%;
+                flex-direction: row;
+                .column {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: end;
+                }
+            }
+            label {
+                display: inline-block;
+                font-weight: bold;
+                line-height: 30px;
+            }
+            input,
+            select,
+            textarea {
+                flex: 1;
+                height: 26px;
+                line-height: 26px;
+                padding: 2px 6px;
+                margin-right: 10px;
+            }
+            textarea {
+                height: 200px;
+                resize: none;
+            }
+        }
+    }
+    .button-cotainer {
+        margin: 10px;
+    }
+}
