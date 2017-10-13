@@ -2,8 +2,8 @@
 export default function routes($stateProvider: angular.ui.IStateProvider,
                        $urlRouterProvider: angular.ui.IUrlRouterProvider) {
   $stateProvider
-    .state('layout.home', {
-      url: 'home',
-      template: '<home></home>'
+    .state('layout.offerentHome', {
+      url: 'offerenthome',
+      template: '<offerent_home></offerent_home>'
     });
 }

@@ -28,7 +28,8 @@ export default class LoginController implements ng.IComponentController {
               private loginService : LoginService,
               private showMessagesService : ShowMessagesService,
               private $stateParams: any,
-              private filterFilter:ng.IFilterFilter) {
+              private filterFilter:ng.IFilterFilter, 
+              private jwtHelper:any) {
                 
   }
 
@@ -49,13 +50,17 @@ export default class LoginController implements ng.IComponentController {
       this.$timeout(function () {
           that.loginService.login(that.user, that.password).then(
             function(response,status,headers,config){
+              console.log(that.jwtHelper.decodeToken(response.data));
               //console.log(headers('Access-Control-Allow-Credentials'));
               that.$sessionStorage.JWTtoken = {
                                                 response: response.data,
                                                 id: that.user
                                               };
 
-              that.$state.go('layout.home'); 
+              if (that.jwtHelper.decodeToken(response.data).aud === '1') 
+                that.$state.go('layout.offerentHome'); 
+              else
+                console.log('Se logeo un aspirante');
             });
         }, standardDelay);  
         this.submitPromise = defer.promise;
@@ -88,7 +93,7 @@ export default class LoginController implements ng.IComponentController {
           }
         }
         this.$sessionStorage.JWTtoken.currentRole = this.currentRole;
-        this.$state.go('layout.home');  
+        this.$state.go('layout.offerentHome');  
     }
 
     resetPassword():void
