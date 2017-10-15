@@ -1,20 +1,15 @@
-<div class="login-container">
-    <div class="login headerBg">
-        <h1 class="title whiteTx">SISTEMA UNIFICADO DE BECAS</h1>
-        <form name="login" class="form-login">
-            <div class="input-c">
-                <div class="line">
-                    <span class="icon_login_user icon secondBg"></span>
-                    <input type="text" name="username" ng-model="vm.user" placeholder="Usuario">
-                </div>
-                <div class="line">
-                    <span class="icon_login_password icon secondBg"></span>
-                    <input type="password" name="password" ng-model="vm.password" placeholder="Contraseña">
-                </div>
-            </div>
-            <button type="button" ng-click="vm.submit()" class="login-btn mainBg whiteTx">INGRESAR</button>
-        </form>
-        <label class="message">¿Olvido la contraseña?</label>
+<form name="login" class="form-login">
+    <header class="title whiteTx"> SISTEMA UNIFICADO DE BECAS</header>
+
+    <div class="line">
+        <span class="icon_login_user icon secondBg"></span>
+        <input type="text" name="username" ng-model="vm.user" placeholder="Usuario">
     </div>
-    <button type="button" ng-click="vm.register()" class="register-btn mainBg whiteTx">REGISTRARSE</button>
-</div>
+    <div class="line">
+        <span class="icon_login_password icon secondBg"></span>
+        <input type="password" name="password" ng-model="vm.password" placeholder="Contraseña">
+    </div>
+
+    <button type="button" ng-click="vm.submit()" class="login-btn mainBg whiteTx">INGRESAR</button>
+    <label class="message">¿Olvido la contraseña?</label>
+</form>

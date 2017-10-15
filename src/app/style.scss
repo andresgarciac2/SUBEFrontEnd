@@ -30,19 +30,19 @@
     font-weight: bold;
 }
 
-html {
+html,
+body,
+div[ui-view] {
     height: 100%;
 }
 
 body {
     font-family: "OpenSans";
     font-size: $font-sm;
-    height: 100%;
     overflow-x: auto;
     overflow-y: auto;
     overflow: hidden;
     position: absolute;
-    width: 100%;
 }
 
 h1 {

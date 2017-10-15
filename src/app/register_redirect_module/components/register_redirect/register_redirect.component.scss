@@ -1,7 +1,5 @@
 @import '../../../sass/_variables';
 @import '../../../sass/_mixins';
-
-
 section.main {
     align-items: center;
     background-color: $white;
@@ -29,10 +27,10 @@ section.main {
                 width: 250px;
             }
             .canditate {
-                background: url(/assets/img/Icono_candidato.png) center 0 no-repeat;
+                content: url(/assets/img/Icono_candidato.png);
             }
             .offerer {
-                background: url(/assets/img/Icono_oferente.png) center 0 no-repeat;;
+                content: url(/assets/img/Icono_oferente.png);
             }
             .description {
                 font-size: $font-md;

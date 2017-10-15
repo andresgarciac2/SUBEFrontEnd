@@ -1,6 +1,5 @@
 @import '../../../sass/_variables';
 @import '../../../sass/_mixins';
-
 .login-container {
     align-items: center;
     background-color: $blue_second;
@@ -12,59 +11,61 @@
     overflow: hidden;
     width: 100%;
     position: absolute;
-    button:hover {
-        opacity: 1;
-        color: $blue_light;
-        font-weight: bold;
-    }
     .login {
         @include border_radius(30px);
         align-items: center;
-        display: inherit;
-        flex-direction: column;
+        display: flex;
+        flex-flow: row wrap;
         height: 180px;
-        justify-content: space-around;
         padding: 20px;
-        .title {
-            text-align: center;
-        }
         .form-login {
-            display: inherit;
-            flex-flow: inherit;
-            .input-c {
-                .line {
-                    align-items: center;
-                    display: flex;
-                    flex-direction: row;
-                    margin-bottom: 10px;
-                    width: 100%;
-                    span.icon {
-                        color: $blue_light;
-                        font-size: $font-xxl;
-                        height: 32px;
-                        line-height: 32px;
-                        text-align: center;
-                        width: 32px;
-                    }
-                    input[type='text'] {
-                        @include border_radius_all(0px, 4px, 4px, 0px); // border-radius: 0px 4px 4px 0px;
-                    }
+            align-items: center;
+            display: flex;
+            flex-flow: column wrap;
+            height: 100%;
+            justify-content: space-between;
+            .title {
+                font-size: $font-xxl;
+                line-height: $font-xxl;
+                display: block;
+                text-align: center;
+            }
+            .line {
+                display: flex;
+                width: 80%;
+                span.icon {
+                    color: $blue_light;
+                    font-size: $font-xxl;
+                    height: 32px;
+                    line-height: 32px;
+                    text-align: center;
+                    width: 32px;
+                }
+                input[type='text'],
+                input[type='password'],
+                {
+                    flex: 1;
+                    @include border_radius_all(0px, 4px, 4px, 0px); // border-radius: 0px 4px 4px 0px;
+                }
+            }
+            button {
+                width: 80%;
+                &:hover {
+                    opacity: 1;
+                    color: $blue_light;
+                    font-weight: bold;
+                }
+            }
+            label.message {
+                color: $blue_light;
+                text-align: center;
+                cursor: pointer;
+                font-size: $font-md;
+                &:hover {
+                    color: $white;
+                    opacity: 1;
                 }
             }
         }
-        label.message {
-            color: $blue_light;
-            cursor: pointer;
-            font-size: $font-md;
-            &:hover {
-                color: $white;
-                opacity: 1;
-            }
-        }
-    }
-    .register-btn {
-        @include border_radius_all(0px, 0px, 4px, 4px);
-        margin-top: 5px;
-        width: 150px;
     }
 }
