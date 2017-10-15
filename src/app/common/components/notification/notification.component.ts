@@ -7,7 +7,8 @@ export const NotificationComponent: angular.IComponentOptions = {
     bindings: {
         message: '=',
         isOpen: '=',
-        type: '='
+        type: '=',
+        title: '='
     }
   };
   
