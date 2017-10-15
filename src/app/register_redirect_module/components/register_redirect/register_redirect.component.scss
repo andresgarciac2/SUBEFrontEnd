@@ -1,9 +1,6 @@
 @import '../../../sass/_variables';
 @import '../../../sass/_mixins';
-:host(register) {
-    display: flex;
-    flex: 1;
-}
+
 
 section.main {
     align-items: center;
@@ -27,13 +24,18 @@ section.main {
                 margin-bottom: 5px;
             }
             .icon {
-                background-color: #d4d4d4;
-                height: 140px;
-                margin-bottom: 5px;
-                width: 140px;
+                height: 250px;
+                margin: 20px;
+                width: 250px;
+            }
+            .canditate {
+                background: url(/assets/img/Icono_candidato.png) center 0 no-repeat;
+            }
+            .offerer {
+                background: url(/assets/img/Icono_oferente.png) center 0 no-repeat;;
             }
             .description {
-                font-size: $font-sm;
+                font-size: $font-md;
                 margin-bottom: 5px;
             }
             button {

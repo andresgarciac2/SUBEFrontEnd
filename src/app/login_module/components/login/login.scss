@@ -1,5 +1,6 @@
 @import '../../../sass/_variables';
 @import '../../../sass/_mixins';
+
 .login-container {
     align-items: center;
     background-color: $blue_second;
@@ -38,7 +39,11 @@
                     margin-bottom: 10px;
                     width: 100%;
                     span.icon {
+                        color: $blue_light;
+                        font-size: $font-xxl;
                         height: 32px;
+                        line-height: 32px;
+                        text-align: center;
                         width: 32px;
                     }
                     input[type='text'] {

@@ -20,7 +20,7 @@ function webpackWrapper(watch, test, callback) {
         modulesDirectories: [conf.paths.src + '/app', 'node_modules']
     },
     watch: watch,
-    module: {
+    module: { 
       preLoaders: [{ test: /\.ts$/, exclude: /node_modules/, loader: 'tslint-loader'}],
       loaders: [{ test: /\.ts$/, exclude: /node_modules/, loaders: ['ng-annotate', 'ts']}]
     },

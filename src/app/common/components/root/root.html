@@ -1,9 +1,14 @@
-<div class="root">
-    <header-sube></header-sube>
-    <div ui-view></div>
-    <footer-sube></footer-sube>
+<div class="page-container">
+
+    <header-sube ng-if="!('layout.login' | includedByState)"></header-sube>
+    <section class="main">
+        <div ui-view></div>
+    </section>
+    <!-- <notification></notification> -->
+    <footer-sube ng-if="!('layout.login' | includedByState)"></footer-sube>
     <!--<footer ng-if="('layout.login' | includedByState) || ('layout.emailRequest' | includedByState) || 
     ('layout.passwordRequest' | includedByState) || ('layout.passwordSet' | includedByState)" class="foQbe foolog"></footer>
     <footer ng-if="!( ('layout.login' | includedByState) || ('layout.emailRequest' | includedByState) || 
     ('layout.passwordRequest' | includedByState) || ('layout.passwordSet' | includedByState))" class="foQbe"></footer>-->
+
 </div>

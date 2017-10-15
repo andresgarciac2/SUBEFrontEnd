@@ -1,12 +1,45 @@
 @import '../../../sass/_variables';
 @import '../../../sass/_mixins';
-.main {
+:host(register) {
+    display: flex;
+    flex: 1;
+}
+
+section.main {
     align-items: center;
     background-color: $white;
     display: flex;
     flex-direction: column;
-    flex: auto;
+    flex: 1;
     overflow: auto;
+    padding: 5px;
+    .test {
+        display: flex;
+        flex: 1;
+        .item {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0px 5px;
+            header {
+                font-size: $font-xxl;
+                margin-bottom: 5px;
+            }
+            .icon {
+                height: 250px;
+                margin: 20px;
+                width: 250px;
+            }
+            .description {
+                font-size: $font-md;
+                margin-bottom: 5px;
+            }
+            button {
+                min-width: 120px;
+            }
+        }
+    }
     form {
         border: solid 1px $blue_border;
         max-width: 75%;
@@ -26,15 +59,13 @@
                 display: flex;
                 flex: 0 0 50%;
                 flex-direction: column;
-                margin: 5px 0px;
+                margin: 0px;
                 label {
                     display: inline-block;
                     font-weight: bold;
                     line-height: 30px;
                 }
-                input[type='text'],
-                input[type='password'],
-                input[type='number'],
+                input,
                 select {
                     flex: 1;
                     margin-right: 10px;

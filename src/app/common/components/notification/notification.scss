@@ -1,0 +1,80 @@
+@import '../../../sass/_variables';
+
+.notification-container {
+    z-index: 1000;
+    animation: fadein 2s;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    .notification {
+        border-radius: 5px;
+        background-color: $white;
+        box-shadow: 10px 10px 5px #888888;
+        min-height: 150px;
+        opacity: 1;
+        width: 50%;
+        header {
+            border-radius: 5px 5px 0 0;
+            align-items: center;
+            display: flex;
+            font-size: $font-md;
+            height: 36px;
+            justify-content: flex-start;
+            opacity: 1;
+            padding: 5px;
+            .icon {
+                color: $white;
+                font-size: $font-xxl;
+            }
+            .title {
+                flex: 1;
+                color: $white;
+                font-size: $font-lg;
+                margin-left: 5px;
+            }
+            .close {
+                cursor: pointer;
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+        }
+        .message {
+            padding: 10px;
+            label.text {
+                text-align: justify;
+            }
+        }
+    }
+    .error {
+        header {
+            background-color: $red;
+        }
+    }
+    .success {
+        header {
+            background-color: $green;
+        }
+    }
+    .warning {
+        header {
+            background-color: $yellow;
+        }
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1 !important;
+    }
+}
