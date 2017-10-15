@@ -28,6 +28,10 @@ export default class RegisterOfferentController implements ng.IComponentControll
   public motrarOferente = false;
   public rolSeleccionado = "";
   public oferente: any = {};
+  public openNotification = false;
+  public notificationMessage = "";
+  public notificationTitle = "";
+  public notificationType = "";
   
   /** @ngInject */
   constructor(private toastr: any, 
@@ -120,8 +124,17 @@ export default class RegisterOfferentController implements ng.IComponentControll
           that.registerOfferentService.registerUser(userDto).then(
             (response: any) => {
               that.$state.go('layout.login'); 
+              that.notificationMessage = 'Usuario registrado exitosamente';
+              that.openNotification = true;
+              that.notificationTitle = "Registro exitoso";
+              that.notificationType = "success";
               that.showMessagesService.showInfo('Usuario registrado exitosamente!');
-            }, (error) => {});
+            }, (error) => {
+              that.notificationMessage = 'Upss tenemos problemas';
+              that.openNotification = true;
+              that.notificationTitle = "Registro fallido";
+              that.notificationType = "error";
+            });
         }, standardDelay);
       this.submitPromise = defer.promise;      
       

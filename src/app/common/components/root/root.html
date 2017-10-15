@@ -1,7 +1,7 @@
 <div class="page-container">
 
     <header-sube ng-if="!('layout.login' | includedByState)"></header-sube>
-    <section class="main">
+    <section ng-class="{'main': !('layout.login' | includedByState)}">
         <div ui-view></div>
     </section>
     <!-- <notification></notification> -->
