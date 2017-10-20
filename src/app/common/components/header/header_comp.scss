@@ -6,52 +6,68 @@
     flex-direction: column;
     height: 100%;
     overflow: hidden;
-
-    header.main-header {
+    .main-header {
         align-items: center;
         display: flex;
         flex-flow: row nowrap;
         height: 70px;
-        padding: 0px 10px;
+        padding: 0px 5px;
         h1,
         h2 {
             color: $white;
-            display: inline-block;
         }
         .logo {
+            align-items: center;
+            display: flex;
+            flex-flow: row wrap;
             height: 50px;
-            span.icon {
-                background-color: $blue_second;
-                display: inline-block;
-                height: 50px;
-                line-height: 50px;
+            justify-content: flex-start;
+            .icon {
+                background-color: $blue_light;
+                border-radius: 50px;
+                color: $white;
+                font-size: 20px;
+                height: 28px;
+                line-height: 28px;
+                text-align: center;
+                width: 28px;
+            }
+            .title {
+                padding: 0 5px;
             }
         }
         .content {
             font-weight: normal;
             font-size: $font-md;
             height: 50px;
-            margin-left: 10px;
             line-height: 50px;
-            padding: 0px 10px;
+            padding: 0px 5px;
             text-align: center;
             @include border_radius(10px);
         }
         nav.main-menu {
             display: flex;
             flex: 1;
-            justify-content: flex-end;
             ul {
                 display: flex;
+                flex: 1;
+                justify-content: flex-end;
                 li.item {
                     color: $white;
                     cursor: pointer;
+                    display: flex;
+                    flex-flow: column nowrap;
                     font-size: $font-lg;
                     font-weight: bold;
-                    height: 40px;
-                    line-height: 40px;
-                    padding: 0px 10px;
+                    line-height: $font-lg;
+                    padding: 0px 5px;
                     text-align: center;
+                    .icon {
+                        padding: 5px 0;
+                        font-size: $font-xxl;
+                        line-height: $font-xxl;
+                        text-align: center;
+                    }
                 }
                 li.item:hover {
                     color: $blue_light;
@@ -66,5 +82,13 @@
         flex-direction: column;
         flex: auto;
         overflow: auto;
+    }
+    footer {
+        background-color: $back_light;
+        color: $white;
+        height: 30px;
+        line-height: 30px;
+        padding: 0px 10px;
+        text-align: right;
     }
 }
