@@ -1,0 +1,113 @@
+<section class="main">
+    <form name="info">
+        <header class="mainTx thirdBg">Crear paso</header>
+        <section class="info">
+            <div class="line">
+                <label class="mainTx font-md ellipsis" title="Convocatoria">Convocatoria AAAABBBB</label>
+            </div>
+
+        </section>
+        <header class="mainTx thirdBg">Campos del paso</header>
+        <section class="step">
+            <div class="line">
+                <div class="item">
+                    <label class="mainTx font-md ellipsis" title="Nombre del paso">Nombre del paso
+                        <mark>*</mark>
+                    </label>
+                    <input type="text" name="name" placeholder="">
+                </div>
+                <div class="item">
+                    <label class="mainTx font-md ellipsis" title="Apellidos">Tipo
+                        <mark>*</mark>
+                    </label>
+                    <select name="type">
+                        <option value="-1">--Seleccione--</option>
+                        <option value="0">Entrevista</option>
+                        <option value="1">Formulario</option>
+                    </select>
+                </div>
+                <div class="order">
+                    <div class="item">
+                        <label class="mainTx font-md ellipsis" title="Orden">Orden
+                            <mark>*</mark>
+                        </label>
+                        <input type="number" name="name" class="">
+                    </div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="temp">
+                    <div class="basic">
+                        <div class="item">
+                            <label class="mainTx font-md ellipsis" title="Nombre">Nombre
+                                <mark>*</mark>
+                            </label>
+                            <input type="text" name="name" class="">
+                        </div>
+                        <div class="item">
+                            <label class="mainTx font-md ellipsis" title="Tipo">Tipo
+                                <mark>*</mark>
+                            </label>
+                            <select name="type">
+                                <option value="-1">--Seleccione--</option>
+                                <option value="1">Archivo</option>
+                                <option value="2">Correo</option>
+                                <option value="3">Fecha</option>
+                                <option value="4">Numero</option>
+                                <option value="5">Seleccion</option>
+                                <option value="6">Texto</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="validation">
+                        <div class="item">
+                            <label class="mainTx font-md ellipsis" title="Validación">Validación</label>
+                            <select name="type">
+                                <option value="-1">--Seleccione--</option>
+                                <option value="1">Contiene</option>
+                                <option value="2">Diferente</option>
+                                <option value="3">Igual</option>
+                                <option value="4">Mayor o igual</option>
+                                <option value="5">Mayor</option>
+                                <option value="6">Menor o igual</option>
+                                <option value="7">Menor</option>
+                            </select>
+                        </div>
+                        <div class="item">
+                            <label class="mainTx font-md ellipsis" title="Validación">Valor</label>
+                            <input type="text" name="name" class="">
+                        </div>
+                    </div>
+                    <div class="order">
+                        <div class="item">
+                            <label class="mainTx font-md ellipsis" title="Orden">Orden
+                                <mark>*</mark>
+                            </label>
+                            <input type="number" name="name" class="">
+                        </div>
+                    </div>
+                    <div class="swich">
+                        <label class="mainTx font-md ellipsis" title="Requerido">Requerido</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="required" checked>
+                            <label class="onoffswitch-label" for="required">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="action-container">
+                        <span class="icon_add action mainBg" title="Agregar el campo"></span>
+                        <span class="icon_deleted action secondBg" title="Borrar el campo"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+    <div class="button-cotainer">
+        <button type="button" routerLink="/register" routerLinkActive="active" class="whiteTx secondBg">Cancelar</button>
+        <button type="button" class="whiteTx mainBg" (click)="onUpdate()">Registrar</button>
+    </div>
+
+</section>

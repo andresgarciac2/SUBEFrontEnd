@@ -13,5 +13,6 @@ export const unsecuredRoutes: string[] = [
   "layout.emailRequest",
   "layout.passwordRequest",
   "layout.passwordSet",
-  "layout.registerRedirect"
+  "layout.registerRedirect",
+  "layout.step"
 ];
