@@ -77,17 +77,18 @@ select {
     @include border_radius(3px);
     border: none;
     font-size: $font-sm;
-    height: 26px;
     line-height: 26px;
-    min-width: 5rem;
+    max-height: 26px;
     outline: none;
     padding: 2px 6px;
     resize: none;
-    &:active {
-        border-style: none;
-    }
 }
 
+select {
+    height: 32px;
+    line-height: 26px;
+    max-height: 32px;
+}
 a,
 a:visited {
     color: inherit;
