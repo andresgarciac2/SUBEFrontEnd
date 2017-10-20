@@ -212,20 +212,6 @@ mark {
     border-color: $white;
 }
 
-.action {
-    border-radius: 50%;
-    cursor: pointer;
-    color: $white;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    margin: 5px;
-    width: 30px;
-    &:hover {
-        opacity: 0.4;
-    }
-}
-
 .onoffswitch {
     position: relative;
     width: 74px;

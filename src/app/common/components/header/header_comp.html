@@ -1,25 +1,35 @@
-
-  <header class="main-header headerBg">
-    <div class="logo">
-      <span class="icon">A</span>
-      <h1 class="title">SISTEMA UNIFICADO DE BECAS</h1>
-    </div>
-    <div class="content mainBg">
-      <h2 class="title">{{('layout.offert' | includedByState) ? 'Crear Oferta' :
-          ('layout.login' | includedByState) ? 'Login' :
-          ('layout.registerOfferent' | includedByState) ? 'Registrar Oferente' :
-          ('layout.registerCandidate' | includedByState) ? 'Registrar Candidato' :
-          ('layout.registerRedirect' | includedByState) ? 'Registrarse' : 'Inicio'}}</h2>
-    </div>
-    <nav class="main-menu">
-      <ul>
-        <li class="item"><a routerLink="/login" routerLinkActive="active">Inicio</a></li>
-        <li class="item"> <a routerLink="/offer" routerLinkActive="active">Ofertas</a> </li>
-        <li class="item"> <a routerLink="/profile" routerLinkActive="active">Perfil</a></li>
-        <li class="item" ng-click="vm.goTo('layout.registerRedirect')"> <a routerLink="/register" routerLinkActive="active">Registro</a></li>
-        <li class="item" ng-click="vm.logout()" ng-if="!('layout.login' | includedByState) " > 
-          <a routerLink="/profile" routerLinkActive="active">Cerrar Sesión</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+<header class="main-header headerBg">
+  <div class="logo">
+    <span class="icon_graduation_cap icon"></span>
+    <h1 class="title">SISTEMA UNIFICADO DE BECAS</h1>
+  </div>
+  <div class="content mainBg">
+    <h2 class="title">{{('layout.offert' | includedByState) ? 'Crear Oferta' : ('layout.login' | includedByState) ? 'Login' : ('layout.registerOfferent'
+      | includedByState) ? 'Registrar Oferente' : ('layout.registerCandidate' | includedByState) ? 'Registrar Candidato'
+      : ('layout.registerRedirect' | includedByState) ? 'Registrarse' : 'Inicio'}}</h2>
+  </div>
+  <nav class="main-menu">
+    <ul>
+      <li class="item">
+        <span class="icon_home icon"></span>
+        <a routerLink="/login" routerLinkActive="active">Inicio</a>
+      </li>
+      <li class="item">
+        <span class="icon_books icon"></span>
+        <a routerLink="/offer" routerLinkActive="active">Ofertas</a>
+      </li>
+      <li class="item">
+        <span class="icon_profile icon"></span>
+        <a routerLink="/profile" routerLinkActive="active">Perfil</a>
+      </li>
+      <li class="item" ng-click="vm.goTo('layout.registerRedirect')">
+        <span class="icon_user-plus icon"></span>
+        <a routerLink="/register" routerLinkActive="active">Registro</a>
+      </li>
+      <li class="item" ng-click="vm.logout()" ng-if="!('layout.login' | includedByState) ">
+        <span class="icon_exit icon"></span>
+        <a routerLink="/profile" routerLinkActive="active">Cerrar Sesión</a>
+      </li>
+    </ul>
+  </nav>
+</header>

@@ -1,7 +1,7 @@
 <div ng-class="!('layout.login' | includedByState) ? 'page-container' : 'login-container '">
     <header-sube ng-if="!('layout.login' | includedByState)"></header-sube>
     <section ng-class="!('layout.login' | includedByState) ? 'main' : 'login headerBg'">
-        <div ui-view></div>
+        <div class="flext" ui-view></div>
     </section>
     <!-- <notification></notification> -->
     <footer-sube ng-if="!('layout.login' | includedByState)"></footer-sube>

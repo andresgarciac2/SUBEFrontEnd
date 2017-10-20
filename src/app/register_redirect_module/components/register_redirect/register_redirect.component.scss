@@ -1,13 +1,12 @@
 @import '../../../sass/_variables';
 @import '../../../sass/_mixins';
-section.main {
+.register_redirect {
     align-items: center;
     background-color: $white;
     display: flex;
     flex-direction: column;
-    flex: 1;
     overflow: auto;
-    padding: 5px;
+    height: 100%;
     .test {
         display: flex;
         flex: 1;

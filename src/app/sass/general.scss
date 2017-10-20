@@ -45,20 +45,40 @@ textarea {
 }
 
 input,
-button,
-select {
+select,
+textarea {
     @include border_radius(3px);
-    border: none;
+    border: solid 1px $blue_border;
     font-size: $font-sm;
     height: 26px;
     line-height: 26px;
-    min-width: 5rem;
     outline: none;
     padding: 2px 6px;
+}
+
+input[type="text"],
+input[type="password"],
+select,
+{
+    min-width: 130px;
+    flex: 1;
+}
+
+input[type="number"] {
+    max-width: 50px;
+    text-align: center;
+    padding: 2px 1px 2px 6px;
+}
+
+select {
+    height: 32px;
+}
+
+textarea {
+    height: 200px;
+    line-height: 150%;
+    outline: none;
     resize: none;
-    &:active {
-        border-style: none;
-    }
 }
 
 button {
@@ -72,14 +92,6 @@ button {
 .disabled {
     pointer-events: none;
     opacity: 0.4;
-}
-
-input[type='text'],
-input[type='password'],
-input[type='number'],
-select,
-textarea {
-    border: solid 1px $blue_border;
 }
 
 .font-xxl {

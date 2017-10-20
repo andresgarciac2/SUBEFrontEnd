@@ -1,18 +1,12 @@
 @import '../../../sass/_variables';
 @import '../../../sass/_mixins';
-:host(register) {
-    display: flex;
-    flex: 1;
-}
-
-section.main {
+.register-offerer {
     align-items: center;
     background-color: $white;
     display: flex;
     flex-direction: column;
-    flex: 1;
     overflow: auto;
-    padding: 5px;
+    height: 100%;
     .test {
         display: flex;
         flex: 1;

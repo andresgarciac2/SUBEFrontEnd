@@ -1,6 +1,13 @@
 @import '../../../sass/_variables';
 @import '../../../sass/_mixins';
-.main {
+.offer-step {
+    background-color: red;
+    align-items: center;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
     .info {
         display: flex;
         flex-flow: column wrap;
@@ -61,7 +68,7 @@
                     flex-flow: column nowrap;
                     justify-content: center;
                     padding: 0 5px;
-                    width: 75px;
+                    width: 85px;
                 }
                 .action-container {
                     align-items: center;
@@ -69,6 +76,20 @@
                     justify-content: space-around;
                     margin: 0;
                     padding: 0;
+                    .icon {
+                        border-radius: 50px;
+                        color: #ffffff;
+                        cursor: pointer;
+                        font-size: 18px;
+                        height: 30px;
+                        line-height: 30px;
+                        margin: 5px;
+                        text-align: center;
+                        width: 30px;
+                        &:hover {
+                            opacity: 0.4;
+                        }
+                    }
                 }
             }
         }
