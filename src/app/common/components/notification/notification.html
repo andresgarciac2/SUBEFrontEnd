@@ -1,9 +1,9 @@
 <div class="notification-container" ng-if="vm.isOpen">
     <div class="notification" ng-class="{'error': vm.type === 'error', 'success': vm.type == 'success'}">
         <header>
-            <span class="icon_login_user icon" title="{{vm.title}}"></span>
+            <span class="icon_" title="{{vm.title}}"></span>
             <label class="title">{{vm.title}}</label>
-            <span ng-click="vm.closeModal()" class="icon_login_user icon close" title="Cerrar"></span>
+            <span ng-click="vm.closeModal()" class="icon_cancel-circle whiteTx font-xxl close" title="Cerrar"></span>
         </header>
         <section class="message">
             <label class="text secondTx">{{vm.message}}</label>

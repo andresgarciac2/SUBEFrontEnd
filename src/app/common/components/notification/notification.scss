@@ -1,5 +1,4 @@
 @import '../../../sass/_variables';
-
 .notification-container {
     z-index: 1000;
     animation: fadein 2s;
@@ -29,9 +28,9 @@
             justify-content: flex-start;
             opacity: 1;
             padding: 5px;
-            .icon {
-                color: $white;
-                font-size: $font-xxl;
+            .icon_ {
+                color: $white !important;
+                font-size: $font-xxl !important;
             }
             .title {
                 flex: 1;
@@ -56,16 +55,31 @@
     .error {
         header {
             background-color: $red;
+            .icon_ {
+                &:before {
+                    content: "\ea0e";
+                }
+            }
         }
     }
     .success {
         header {
             background-color: $green;
         }
+        .icon_ {
+            &:before {
+                content: "\ea0c";
+            }
+        }
     }
     .warning {
         header {
             background-color: $yellow;
+        }
+        .icon_ {
+            &:before {
+                content: "\ea07";
+            }
         }
     }
 }
