@@ -5,14 +5,9 @@ export const unsecuredRoutes: string[] = [
   "layout.login",
   "layout.registerOfferent",
   "layout.registerCandidate",
-  "layout.sacSarlaft",
-  "layout.frequentquestions",
-  "layout.pqr",
-  "layout.contact",
-  "layout.sac_sarlaft",
-  "layout.emailRequest",
-  "layout.passwordRequest",
-  "layout.passwordSet",
   "layout.registerRedirect",
-  "layout.step"
+  // next paths are added temporaly
+  "layout.step",
+  "layout.offerentHome",
+  "layout.offert"
 ];
