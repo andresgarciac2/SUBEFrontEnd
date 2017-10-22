@@ -19,7 +19,10 @@ export function StepController($scope: any,
     vm.step = {}      
     vm.step.offerStepConfiguration = {};                             
     vm.step.offerStepConfiguration.serializeSettings = [{}];
-    
+    vm.step.offerStepConfiguration.offerId = $state.params['offer_id'];
+    vm.step.offerId = $state.params['offer_id'];
+    vm.step.offerTransition = null;
+
     vm.addAttribute = function(attribute){
         vm.step.offerStepConfiguration.serializeSettings.push({});
     }
@@ -27,5 +30,16 @@ export function StepController($scope: any,
     vm.deleteAttribute = function(index){
         vm.step.offerStepConfiguration.serializeSettings.splice(index, 1);
     }
+
+    vm.registerStep = function(){
+        offertService.registerStep(vm.step
+            , $sessionStorage.JWTtoken.response
+            , $sessionStorage.JWTtoken.id)
+            .then(function(response){
+                vm.step.offerStepConfiguration.serializeSettings = JSON.parse(vm.step.offerStepConfiguration.serializeSettings);
+            }, function(){
+                vm.step.offerStepConfiguration.serializeSettings = JSON.parse(vm.step.offerStepConfiguration.serializeSettings);
+            })
+    }          
 
 }

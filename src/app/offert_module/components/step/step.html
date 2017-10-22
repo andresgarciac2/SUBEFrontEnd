@@ -34,7 +34,7 @@
                     <label class="mainTx font-md ellipsis" title="Tipo">Tipo
                         <mark>*</mark>
                     </label>
-                    <select name="type">
+                    <select name="type" ng-model="vm.step.type">
                         <option value="-1">--Seleccione--</option>
                         <option value="0">Entrevista</option>
                         <option value="1">Formulario</option>
@@ -45,7 +45,7 @@
                         <label class="mainTx font-md ellipsis" title="Orden">Orden
                             <mark>*</mark>
                         </label>
-                        <input type="number" min="1" name="name" class="">
+                        <input type="number" name="name" min="1" ng-model="vm.step.position">
                     </div>
                 </div>
                 <div class=" button-action">
@@ -128,6 +128,6 @@
     </form>
     <div class="button-cotainer">
         <button type="button" routerLink="/register" routerLinkActive="active" class="whiteTx secondBg">Cancelar</button>
-        <button type="button" class="whiteTx mainBg" (click)="onUpdate()">Registrar</button>
+        <button type="button" class="whiteTx mainBg" ng-click="vm.registerStep()">Registrar</button>
     </div>
 </section>

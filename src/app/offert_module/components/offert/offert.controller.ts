@@ -18,6 +18,10 @@ export function OffertController($scope: any,
     var vm = this;
                                             
     vm.offert = {};
+    vm.openNotification = false;
+    vm.notificationMessage = "";
+    vm.notificationTitle = "";
+    vm.notificationType = "";
 
     vm.register = function(){
         vm.offert.createdBy = $sessionStorage.JWTtoken.id;
@@ -25,6 +29,20 @@ export function OffertController($scope: any,
 
         offertService.registerOffert(vm.offert,
             $sessionStorage.JWTtoken.response,
-            $sessionStorage.JWTtoken.id);
+            $sessionStorage.JWTtoken.id)
+            
+        .then(function(response){
+            
+            vm.notificationMessage = 'Oferta registrada exitosamente';
+            vm.openNotification = true;
+            vm.notificationTitle = "Registro de oferta exitoso";
+            vm.notificationType = "success";
+            $state.go('layout.step',{'offer_id':response.data.id});
+        }, function(){
+            vm.notificationMessage = 'Tenemos problemas para registrar su oferta, intentelo mas tarde';
+            vm.openNotification = true;
+            vm.notificationTitle = "Registro de oferta fallido";
+            vm.notificationType = "error";
+        });
     }
 }
