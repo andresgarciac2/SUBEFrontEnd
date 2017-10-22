@@ -20,5 +20,33 @@
             line-height: 30px;
             padding: 5px;
         }
+        .section {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 10px;
+            .item,
+            .item-full {
+                display: flex;
+                flex-direction: column;
+                margin: 0px;
+                label {
+                    display: inline-block;
+                    font-weight: bold;
+                    line-height: 30px;
+                }
+                input,
+                select,
+                textarea {
+                    flex: 1;
+                    margin-right: 10px;
+                }
+            }
+            .item {
+                flex: 0 0 50%;
+            }
+            .item-full {
+                flex: 1;
+            }
+        }
     }
 }
