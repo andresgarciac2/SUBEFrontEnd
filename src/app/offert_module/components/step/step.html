@@ -6,6 +6,7 @@
                 <label class="mainTx font-md ellipsis" title="Convocatoria">Convocatoria AAAABBBB</label>
             </div>
         </section>
+        {{vm.step}}
         <header class="mainTx thirdBg">Campos del paso</header>
         <section class="step">
             <div class="line">
@@ -19,7 +20,7 @@
                     <label class="mainTx font-md ellipsis" title="Apellidos">Tipo
                         <mark>*</mark>
                     </label>
-                    <select name="type">
+                    <select name="type" ng-model="vm.step.type">
                         <option value="-1">--Seleccione--</option>
                         <option value="0">Entrevista</option>
                         <option value="1">Formulario</option>
@@ -30,7 +31,7 @@
                         <label class="mainTx font-md ellipsis" title="Orden">Orden
                             <mark>*</mark>
                         </label>
-                        <input type="number" name="name" class="">
+                        <input type="number" name="name" class="" ng-model="vm.step.position">
                     </div>
                 </div>
             </div>
@@ -109,6 +110,6 @@
     </form>
     <div class="button-cotainer">
         <button type="button" routerLink="/register" routerLinkActive="active" class="whiteTx secondBg">Cancelar</button>
-        <button type="button" class="whiteTx mainBg" (click)="onUpdate()">Registrar</button>
+        <button type="button" class="whiteTx mainBg" ng-click="vm.registerStep()">Registrar</button>
     </div>
 </section>

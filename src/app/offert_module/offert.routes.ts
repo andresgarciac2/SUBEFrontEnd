@@ -8,6 +8,9 @@ template: '<offert></offert>'
 })
 .state('layout.step', {
 url: 'offer/step',
-template: '<step></step>'
+template: '<step></step>',
+params: {
+    'offer_id': ''
+}
 });
 }
