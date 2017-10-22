@@ -1,21 +1,38 @@
 @import '../../../sass/_variables';
 @import '../../../sass/_mixins';
 .offer-step {
-    background-color: red;
     align-items: center;
     background-color: $white;
     display: flex;
     flex-direction: column;
     overflow: auto;
     height: 100%;
-    .info {
-        display: flex;
-        flex-flow: column wrap;
-        flex: 1;
+    form {
+        border: solid 1px $blue_border;
+        flex-flow: column nowrap;
+        margin-bottom: 10px;
+        min-width: 568px;
+        width: 90%;
+        header {
+            font-weight: bold;
+            font-size: $font-md;
+            height: 30px;
+            line-height: 30px;
+            padding: 5px;
+        }
+        input,
+        select,
+        textarea {
+            margin-right: 10px;
+        }
+        label {
+            font-weight: bold;
+            line-height: 30px;
+        }
         .line {
             display: flex;
             flex: 1;
-            padding: 10px;
+            padding: 5px 10px;
             .item {
                 display: flex;
                 flex-flow: column wrap;
@@ -23,6 +40,63 @@
                 margin-bottom: 10px;
             }
         }
+        .step {
+            .line {
+                display: flex;
+                flex: 1;
+                flex-flow: row wrap;
+                .temp {
+                    display: flex;
+                    flex-flow: row wrap;
+                    flex: 1;
+                    border: 1px solid $blue_border;
+                    padding: 5px;
+                    margin: 5px;
+                    .basic {
+                        display: flex;
+                        flex-flow: row wrap;
+                        flex: 1;
+                    }
+                    .validation {
+                        display: flex;
+                        flex: 1;
+                        flex-flow: row wrap;
+                    }
+                    .swich {
+                        display: flex;
+                        flex-flow: column nowrap;
+                        justify-content: center;
+                        padding: 0 5px;
+                        width: 85px;
+                    }
+                }
+            }
+        }
+    }
+    .action-container {
+        align-items: center;
+        display: flex;
+        justify-content: space-around;
+        margin: 0;
+        padding: 0;
+        .icon {
+            border-radius: 50px;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 18px;
+            height: 30px;
+            line-height: 30px;
+            margin: 5px;
+            text-align: center;
+            width: 30px;
+            &:hover {
+                opacity: 0.4;
+            }
+        }
+    }
+    .button-action {
+        display: flex;
+        align-items: center;
     }
     .order {
         padding: 0 5px;
@@ -35,63 +109,6 @@
             display: flex;
             flex-flow: column wrap;
             flex: 1;
-        }
-    }
-    .step {
-        label {
-            font-weight: bold;
-            line-height: 30px;
-        }
-        .line {
-            display: flex;
-            flex: 1;
-            flex-flow: row wrap;
-            .temp {
-                display: flex;
-                flex-flow: row wrap;
-                flex: 1;
-                border: 1px solid $blue_border;
-                padding: 5px;
-                margin: 5px;
-                .basic {
-                    display: flex;
-                    flex-flow: row wrap;
-                    flex: 1;
-                }
-                .validation {
-                    display: flex;
-                    flex: 1;
-                    flex-flow: row wrap;
-                }
-                .swich {
-                    display: flex;
-                    flex-flow: column nowrap;
-                    justify-content: center;
-                    padding: 0 5px;
-                    width: 85px;
-                }
-                .action-container {
-                    align-items: center;
-                    display: flex;
-                    justify-content: space-around;
-                    margin: 0;
-                    padding: 0;
-                    .icon {
-                        border-radius: 50px;
-                        color: #ffffff;
-                        cursor: pointer;
-                        font-size: 18px;
-                        height: 30px;
-                        line-height: 30px;
-                        margin: 5px;
-                        text-align: center;
-                        width: 30px;
-                        &:hover {
-                            opacity: 0.4;
-                        }
-                    }
-                }
-            }
         }
     }
 }

@@ -29,6 +29,8 @@ export class OffertService {
 
     public registerStep(step: any, token: any, id : any)
     {
+        step.offerStepConfiguration.serializeSettings = JSON.stringify(step.offerStepConfiguration.serializeSettings);
+        console.log(step);
         var req = {
             method: 'POST',
             url: 'http://localhost:8086/offerStep',

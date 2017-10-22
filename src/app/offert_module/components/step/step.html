@@ -1,14 +1,28 @@
 <section class="offer-step">
     <form name="info">
-        <header class="mainTx thirdBg">Crear paso</header>
         <section class="info">
+            <header class="mainTx thirdBg"> Convocatoria AAAABBBB </header>
             <div class="line">
-                <label class="mainTx font-md ellipsis" title="Convocatoria">Convocatoria AAAABBBB</label>
+                <div class="item">
+                    <label class="mainTx font-md ellipsis" title="Listado de pasos">Listado de pasos </label>
+                    <select name="current-step">
+                        <option value="-1">--Seleccione--</option>
+                        <option value="1">Paso 1</option>
+                        <option value="2">Paso 2</option>
+                    </select>
+                </div>
+
+                <div class="action-container">
+                    <span class="icon_edit icon mainBg" title="Editar paso"></span>
+                    <span ng-click="vm.deleteAttribute($index)" class="icon_bin icon secondBg" title="Borrar el paso"></span>
+                </div>
+                <div class=" button-action">
+                    <button class="whiteTx mainBg">Agregar paso</button>
+                </div>
             </div>
         </section>
-        {{vm.step}}
-        <header class="mainTx thirdBg">Campos del paso</header>
-        <section class="step">
+        <section class="">
+            <header class="mainTx thirdBg">Información del paso</header>
             <div class="line">
                 <div class="item">
                     <label class="mainTx font-md ellipsis" title="Nombre del paso">Nombre del paso
@@ -17,7 +31,7 @@
                     <input type="text" name="name" placeholder="" ng-model="vm.step.name">
                 </div>
                 <div class="item">
-                    <label class="mainTx font-md ellipsis" title="Apellidos">Tipo
+                    <label class="mainTx font-md ellipsis" title="Tipo">Tipo
                         <mark>*</mark>
                     </label>
                     <select name="type" ng-model="vm.step.type">
@@ -34,11 +48,16 @@
                         <input type="number" name="name" class="" ng-model="vm.step.position">
                     </div>
                 </div>
+                <div class=" button-action">
+                    <button class="whiteTx mainBg" ng-click="vm.addAttribute()">Agregar atributo</button>
+                </div>
             </div>
-            <button ng-click="vm.addAttribute()">Agregar Atributo</button>
+        </section>
+        <header class="mainTx thirdBg">Campos del paso</header>
+        <section class="step">
             <div class="line" ng-repeat="attr in vm.step.offerStepConfiguration.serializeSettings">
                 {{vm.step.allAttributes}}
-                <div class="temp" >
+                <div class="temp">
                     <div class="basic">
                         <div class="item">
                             <label class="mainTx font-md ellipsis" title="Nombre">Nombre
@@ -92,8 +111,8 @@
                     <div class="swich">
                         <label class="mainTx font-md ellipsis" title="Requerido">Requerido</label>
                         <div class="onoffswitch">
-                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" 
-                              id="required{{$index}}" ng-model="attr.required" checked>
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="required{{$index}}
+                       " ng-model="attr.required" checked>
                             <label class="onoffswitch-label" for="required{{$index}}">
                                 <span class="onoffswitch-inner"></span>
                                 <span class="onoffswitch-switch"></span>

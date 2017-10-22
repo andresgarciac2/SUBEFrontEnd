@@ -34,7 +34,12 @@ export function StepController($scope: any,
     vm.registerStep = function(){
         offertService.registerStep(vm.step
             , $sessionStorage.JWTtoken.response
-            , $sessionStorage.JWTtoken.id);
-    }
+            , $sessionStorage.JWTtoken.id)
+            .then(function(response){
+                vm.step.offerStepConfiguration.serializeSettings = JSON.parse(vm.step.offerStepConfiguration.serializeSettings);
+            }, function(){
+                vm.step.offerStepConfiguration.serializeSettings = JSON.parse(vm.step.offerStepConfiguration.serializeSettings);
+            })
+    }          
 
 }
