@@ -13,7 +13,7 @@
                     <label class="mainTx font-md ellipsis" title="Nombre del paso">Nombre del paso
                         <mark>*</mark>
                     </label>
-                    <input type="text" name="name" placeholder="">
+                    <input type="text" name="name" placeholder="" ng-model="vm.step.name">
                 </div>
                 <div class="item">
                     <label class="mainTx font-md ellipsis" title="Apellidos">Tipo
@@ -34,20 +34,22 @@
                     </div>
                 </div>
             </div>
-            <div class="line">
-                <div class="temp">
+            <button ng-click="vm.addAttribute()">Agregar Atributo</button>
+            <div class="line" ng-repeat="attr in vm.step.offerStepConfiguration.serializeSettings">
+                {{vm.step.allAttributes}}
+                <div class="temp" >
                     <div class="basic">
                         <div class="item">
                             <label class="mainTx font-md ellipsis" title="Nombre">Nombre
                                 <mark>*</mark>
                             </label>
-                            <input type="text" name="name" class="">
+                            <input type="text" name="name" class="" ng-model="attr.name">
                         </div>
                         <div class="item">
                             <label class="mainTx font-md ellipsis" title="Tipo">Tipo
                                 <mark>*</mark>
                             </label>
-                            <select name="type">
+                            <select name="type" ng-model="attr.type">
                                 <option value="-1">--Seleccione--</option>
                                 <option value="1">Archivo</option>
                                 <option value="2">Correo</option>
@@ -62,7 +64,7 @@
                     <div class="validation">
                         <div class="item">
                             <label class="mainTx font-md ellipsis" title="Validación">Validación</label>
-                            <select name="type">
+                            <select name="type" ng-model="attr.validation">
                                 <option value="-1">--Seleccione--</option>
                                 <option value="1">Contiene</option>
                                 <option value="2">Diferente</option>
@@ -75,7 +77,7 @@
                         </div>
                         <div class="item">
                             <label class="mainTx font-md ellipsis" title="Validación">Valor</label>
-                            <input type="text" name="name" class="">
+                            <input type="text" name="name" class="" ng-model="attr.validationValue">
                         </div>
                     </div>
                     <div class="order">
@@ -83,14 +85,15 @@
                             <label class="mainTx font-md ellipsis" title="Orden">Orden
                                 <mark>*</mark>
                             </label>
-                            <input type="number" name="name" class="">
+                            <input type="number" name="name" class="" ng-model="attr.order">
                         </div>
                     </div>
                     <div class="swich">
                         <label class="mainTx font-md ellipsis" title="Requerido">Requerido</label>
                         <div class="onoffswitch">
-                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="required" checked>
-                            <label class="onoffswitch-label" for="required">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" 
+                              id="required{{$index}}" ng-model="attr.required" checked>
+                            <label class="onoffswitch-label" for="required{{$index}}">
                                 <span class="onoffswitch-inner"></span>
                                 <span class="onoffswitch-switch"></span>
                             </label>
@@ -98,7 +101,7 @@
                     </div>
                     <div class="action-container">
                         <span class="icon_add icon mainBg" title="Agregar el campo"></span>
-                        <span class="icon_bin icon secondBg" title="Borrar el campo"></span>
+                        <span ng-click="vm.deleteAttribute($index)" class="icon_bin icon secondBg" title="Borrar el campo"></span>
                     </div>
                 </div>
             </div>

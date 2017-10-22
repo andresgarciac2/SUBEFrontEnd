@@ -16,15 +16,16 @@ export function StepController($scope: any,
                                             StringUtils:StringUtils) {
 
     var vm = this;
-                                            
-    vm.offert = {};
-
-    vm.register = function(){
-        vm.offert.createdBy = $sessionStorage.JWTtoken.id;
-        vm.offert.state = 1;
-
-        offertService.registerOffert(vm.offert,
-            $sessionStorage.JWTtoken.response,
-            $sessionStorage.JWTtoken.id);
+    vm.step = {}      
+    vm.step.offerStepConfiguration = {};                             
+    vm.step.offerStepConfiguration.serializeSettings = [{}];
+    
+    vm.addAttribute = function(attribute){
+        vm.step.offerStepConfiguration.serializeSettings.push({});
     }
+
+    vm.deleteAttribute = function(index){
+        vm.step.offerStepConfiguration.serializeSettings.splice(index, 1);
+    }
+
 }
