@@ -37,7 +37,7 @@ export function OffertController($scope: any,
             vm.openNotification = true;
             vm.notificationTitle = "Registro de oferta exitoso";
             vm.notificationType = "success";
-            $state.go('layout.step',{'offer_id':response.data.id});
+            $state.go('layout.step',{'offer_id':response.data.id, 'offer_name':vm.offert.name});
         }, function(){
             vm.notificationMessage = 'Tenemos problemas para registrar su oferta, intentelo mas tarde';
             vm.openNotification = true;

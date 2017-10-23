@@ -1,7 +1,7 @@
 <section class="offer-step">
     <form name="info">
         <section class="info">
-            <header class="mainTx thirdBg"> Convocatoria AAAABBBB </header>
+            <header class="mainTx thirdBg"> Convocatoria {{vm.offerName}} </header>
             <div class="line">
                 <div class="item">
                     <label class="mainTx font-md ellipsis" title="Listado de pasos">Listado de pasos </label>
@@ -49,12 +49,12 @@
                     </div>
                 </div>
                 <div class=" button-action">
-                    <button class="whiteTx mainBg" ng-click="vm.addAttribute()">Agregar atributo</button>
+                    <button ng-if="vm.step.type == 1" class="whiteTx mainBg" ng-click="vm.addAttribute()">Agregar atributo</button>
                 </div>
             </div>
         </section>
-        <header class="mainTx thirdBg">Campos del paso</header>
-        <section class="step">
+        <header  ng-if="vm.step.type == 1" class="mainTx thirdBg">Campos del paso</header>
+        <section class="step" ng-if="vm.step.type == 1">
             <div class="line" ng-repeat="attr in vm.step.offerStepConfiguration.serializeSettings">
                 {{vm.step.allAttributes}}
                 <div class="temp">
@@ -131,3 +131,4 @@
         <button type="button" class="whiteTx mainBg" ng-click="vm.registerStep()">Registrar</button>
     </div>
 </section>
+<notification message="vm.notificationMessage" is-open="vm.openNotification" title="vm.notificationTitle" type="vm.notificationType"></notification>
