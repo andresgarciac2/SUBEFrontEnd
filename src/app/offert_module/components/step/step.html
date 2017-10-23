@@ -45,7 +45,8 @@
                         <label class="mainTx font-md ellipsis" title="Orden">Orden
                             <mark>*</mark>
                         </label>
-                        <input type="number" name="name" min="1" ng-model="vm.step.position">
+                        <input type="number" name="name" min="1" class="errorInput" ng-model="vm.step.position">
+                        <label class="errorLabel">Requerido</label>
                     </div>
                 </div>
                 <div class=" button-action">
@@ -53,7 +54,7 @@
                 </div>
             </div>
         </section>
-        <header  ng-if="vm.step.type == 1" class="mainTx thirdBg">Campos del paso</header>
+        <header ng-if="vm.step.type == 1" class="mainTx thirdBg">Campos del paso</header>
         <section class="step" ng-if="vm.step.type == 1">
             <div class="line" ng-repeat="attr in vm.step.offerStepConfiguration.serializeSettings">
                 {{vm.step.allAttributes}}

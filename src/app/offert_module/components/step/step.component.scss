@@ -1,5 +1,9 @@
 @import '../../../sass/_variables';
 @import '../../../sass/_mixins';
+div {
+    position: relative;
+}
+
 .offer-step {
     align-items: center;
     background-color: $white;
@@ -101,6 +105,9 @@
     .order {
         padding: 0 5px;
         width: 75px;
+        .errorLabel {
+            margin-bottom: -20px;
+        }
     }
     .basic,
     .validation,
