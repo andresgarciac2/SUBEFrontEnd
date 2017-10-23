@@ -10,7 +10,8 @@ template: '<offert></offert>'
 url: 'offer/step',
 template: '<step></step>',
 params: {
-    'offer_id': ''
+    'offer_id': '',
+    'offer_name': ''
 }
 });
 }

@@ -22,6 +22,12 @@ export function StepController($scope: any,
     vm.step.offerStepConfiguration.offerId = $state.params['offer_id'];
     vm.step.offerId = $state.params['offer_id'];
     vm.step.offerTransition = null;
+    
+    vm.openNotification = false;
+    vm.notificationMessage = "";
+    vm.notificationTitle = "";
+    vm.notificationType = "";
+    vm.offerName = $state.params['offer_name'];
 
     vm.addAttribute = function(attribute){
         vm.step.offerStepConfiguration.serializeSettings.push({});
@@ -37,8 +43,16 @@ export function StepController($scope: any,
             , $sessionStorage.JWTtoken.id)
             .then(function(response){
                 vm.step.offerStepConfiguration.serializeSettings = JSON.parse(vm.step.offerStepConfiguration.serializeSettings);
+                vm.notificationMessage = 'Paso registrado exitosamente';
+                vm.openNotification = true;
+                vm.notificationTitle = "Registro de paso exitoso";
+                vm.notificationType = "success";
             }, function(){
                 vm.step.offerStepConfiguration.serializeSettings = JSON.parse(vm.step.offerStepConfiguration.serializeSettings);
+                vm.notificationMessage = 'Tenemos problemas para registrar el paso, intentelo mas tarde';
+                vm.openNotification = true;
+                vm.notificationTitle = "Registro de paso fallido";
+                vm.notificationType = "error";
             })
     }          
 
