@@ -1,25 +1,20 @@
-
-<div class="page-container">
-    <section class="main">
-		<header class="mainTx thirdBg">Mis Ofertas</header>
-		<br>
-		<table ng-table="vm.table" class="table table-condensed table-bordered table-striped">
-			<thead ng-if="$data.length > 0">
-				<tr>
-					<th ng-repeat="column in vm.columns" class="text-center">
-						{{column.title}}
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="row in $data track by $index">
-					<td ng-repeat="column in vm.columns" data-ng-click="vm.goTo(row,column);" sortable="column.field">
-						{{row[column.field]}}
-					</td>
-				</tr>
-			</tbody>
-		</table> 
-	</section>
-</div>
-
-<button ng-click="vm.logout()">cerrar sesión </button>
+<section class="offerer-home">
+	<header class="mainTx thirdBg">Mis Ofertas</header>
+	<br>
+	<table ng-table="vm.table" class="table table-condensed table-bordered table-striped">
+		<thead ng-if="$data.length > 0">
+			<tr>
+				<th ng-repeat="column in vm.columns" class="text-center">
+					{{column.title}}
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in $data track by $index">
+				<td ng-repeat="column in vm.columns" data-ng-click="vm.goTo(row,column);" sortable="column.field">
+					{{row[column.field]}}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
