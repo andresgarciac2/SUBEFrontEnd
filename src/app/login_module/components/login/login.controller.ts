@@ -15,6 +15,7 @@ export default class LoginController implements ng.IComponentController {
 
   public submitPromise: any = false;
   public error: string = "";
+  public serviceFail: boolean = false;
   
   /** @ngInject */
   constructor(private toastr: any, 
@@ -61,6 +62,8 @@ export default class LoginController implements ng.IComponentController {
                 that.$state.go('layout.offerentHome'); 
               else
                 console.log('Se logeo un aspirante');
+            },function(){
+              that.serviceFail = true;
             });
         }, standardDelay);  
         this.submitPromise = defer.promise;

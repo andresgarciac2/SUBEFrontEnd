@@ -1,7 +1,7 @@
 @import '../../../sass/_variables';
 .notification-container {
     z-index: 1000;
-    animation: fadein 2s;
+    animation: fadein 1s;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.8);
     bottom: 0;
@@ -15,10 +15,10 @@
     .notification {
         border-radius: 5px;
         background-color: $white;
-        box-shadow: 10px 10px 5px #888888;
+        box-shadow: 5px 5px 5px #000000;
         min-height: 150px;
         opacity: 1;
-        width: 50%;
+        width: 40%;
         header {
             border-radius: 5px 5px 0 0;
             align-items: center;

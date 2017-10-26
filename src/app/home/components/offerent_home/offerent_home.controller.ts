@@ -1,4 +1,4 @@
-  /** @ngInject */
+/** @ngInject */
 export function OfferentHomeController($scope: any,
                                        toastr: any,
                                        $translate: ng.translate.ITranslateService, 

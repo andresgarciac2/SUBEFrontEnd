@@ -1,14 +1,16 @@
 <form name="login" class="form-login">
     <header class="title whiteTx"> SISTEMA UNIFICADO DE BECAS</header>
 
-    <div class="line">
+    <div class="line" ng-class="{ errorInput : vm.serviceFail}">
         <span class="icon_login_user icon secondBg"></span>
         <input type="text" name="username" ng-model="vm.user" placeholder="Usuario">
     </div>
-    <div class="line">
+    <div class="line" ng-class="{ errorInput : vm.serviceFail}">
         <span class="icon_login_password icon secondBg"></span>
-        <input type="password" name="password" ng-model="vm.password" placeholder="Contraseña">
+        <input type="password" name="password" class="" ng-model="vm.password" placeholder="Contraseña">
+        <label class="errorLabel" ng-if="vm.serviceFail">Usuario o contraseña invalido</label>
     </div>
+
 
     <button type="button" ng-click="vm.submit()" class="login-btn mainBg whiteTx">INGRESAR</button>
     <label class="message">¿Olvido la contraseña?</label>
