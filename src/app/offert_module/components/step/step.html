@@ -5,19 +5,16 @@
             <div class="line">
                 <div class="item">
                     <label class="mainTx font-md ellipsis" title="Listado de pasos">Listado de pasos </label>
-                    <select name="current-step">
-                        <option value="-1">--Seleccione--</option>
-                        <option value="1">Paso 1</option>
-                        <option value="2">Paso 2</option>
+                    <select name="current-step" ng-model="vm.selectedStep" ng-options="step.name for step in vm.defindedSteps">
                     </select>
                 </div>
 
                 <div class="action-container">
-                    <span class="icon_edit icon mainBg" title="Editar paso"></span>
-                    <span ng-click="vm.deleteAttribute($index)" class="icon_bin icon secondBg" title="Borrar el paso"></span>
+                    <span ng-click="vm.editStep()" class="icon_edit icon mainBg" title="Editar paso"></span>
+                    <span class="icon_bin icon secondBg" title="Borrar el paso"></span>
                 </div>
                 <div class=" button-action">
-                    <button class="whiteTx mainBg">Agregar paso</button>
+                    <button ng-click="vm.initStep()" class="whiteTx mainBg">Agregar paso</button>
                 </div>
             </div>
         </section>
@@ -53,10 +50,19 @@
                 </div>
             </div>
         </section>
+        <section>
+            <div class="line">
+                <div class="item">
+                    <label class="mainTx font-md ellipsis" title="Tipo">Paso anterior</label>
+                    <select name="sourceStep" ng-model="vm.step.offerTransition.sourceStep"
+                       ng-options="step.name for step in vm.defindedSteps">
+                    </select>
+                </div>
+            </div>
+        </section>
         <header  ng-if="vm.step.type == 1" class="mainTx thirdBg">Campos del paso</header>
         <section class="step" ng-if="vm.step.type == 1">
             <div class="line" ng-repeat="attr in vm.step.offerStepConfiguration.serializeSettings">
-                {{vm.step.allAttributes}}
                 <div class="temp">
                     <div class="basic">
                         <div class="item">
@@ -129,7 +135,13 @@
     </form>
     <div class="button-cotainer">
         <button type="button" routerLink="/register" routerLinkActive="active" class="whiteTx secondBg">Cancelar</button>
-        <button type="button" class="whiteTx mainBg" ng-click="vm.registerStep()">Registrar</button>
+        <button ng-if="vm.register" type="button" class="whiteTx mainBg" ng-click="vm.registerStep()">Registrar</button>
+        <button ng-if="!vm.register" type="button" class="whiteTx mainBg" ng-click="vm.updateStep()">Editar</button>
     </div>
 </section>
-<notification message="vm.notificationMessage" is-open="vm.openNotification" title="vm.notificationTitle" type="vm.notificationType"></notification>
+<notification message="vm.notificationMessage" 
+    is-open="vm.openNotification" 
+    title="vm.notificationTitle" 
+    type="vm.notificationType"
+    redirect="'layout.offerentHome'">
+</notification>

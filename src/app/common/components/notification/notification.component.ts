@@ -8,7 +8,8 @@ export const NotificationComponent: angular.IComponentOptions = {
         message: '=',
         isOpen: '=',
         type: '=',
-        title: '='
+        title: '=',
+        redirect: '='
     }
   };
   

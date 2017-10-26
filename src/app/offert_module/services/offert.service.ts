@@ -30,7 +30,7 @@ export class OffertService {
     public registerStep(step: any, token: any, id : any)
     {
         step.offerStepConfiguration.serializeSettings = JSON.stringify(step.offerStepConfiguration.serializeSettings);
-        console.log(step);
+
         var req = {
             method: 'POST',
             url: 'http://localhost:8086/offerStep',
@@ -43,6 +43,39 @@ export class OffertService {
            }
            
            return this.$http(req);/*.then(function(){...}, function(){...});*/
+    }
+
+    public updateStep(step: any, token: any, id : any)
+    {
+        step.offerStepConfiguration.serializeSettings = JSON.stringify(step.offerStepConfiguration.serializeSettings);
+
+        var req = {
+            method: 'PUT',
+            url: 'http://localhost:8086/offerStep',
+            headers: {
+              'Content-Type':'application/x-www-form-urlencoded',
+              'TOKEN':token,
+              'ID':id
+            },
+            data: step
+           }
+           
+           return this.$http(req);/*.then(function(){...}, function(){...});*/
+    }
+
+    public getSteps(offerId: any, token: any, id : any)
+    {
+        var req = {
+            method: 'GET',
+            params: {id: offerId},
+            url: 'http://localhost:8086/offerStep',
+            headers: {
+              'Content-Type':'application/x-www-form-urlencoded',
+              'TOKEN':token,
+              'ID':id
+            }
+           }   
+           return this.$http(req);
     }
 
     public logout() {

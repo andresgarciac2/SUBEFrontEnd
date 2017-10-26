@@ -9,5 +9,6 @@ export const unsecuredRoutes: string[] = [
   // next paths are added temporaly
   "layout.step",
   "layout.offerentHome",
-  "layout.offert"
+  "layout.offert",
+  "layout.offerDetail"
 ];

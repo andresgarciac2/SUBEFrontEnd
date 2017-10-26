@@ -13,8 +13,11 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="row in $data track by $index">
-					<td ng-repeat="column in vm.columns" data-ng-click="vm.goTo(row,column);" sortable="column.field">
-						{{row[column.field]}}
+					<td ng-repeat="column in vm.columns" sortable="column.field">
+						<p ng-if="!column.action">{{row[column.field]}}</p>
+						<button ng-if="column.action" data-ng-click="vm.goToOfferDetail(row,column);">
+							{{row[column.field]}}
+						</button>
 					</td>
 				</tr>
 			</tbody>

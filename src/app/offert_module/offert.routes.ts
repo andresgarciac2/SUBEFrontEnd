@@ -13,5 +13,13 @@ params: {
     'offer_id': '',
     'offer_name': ''
 }
+})
+.state('layout.offerDetail', {
+    url: 'offer/detail',
+    template: '<offer-detail></offer-detail>',
+    params: {
+        'offer': {}
+    }
 });
+
 }
