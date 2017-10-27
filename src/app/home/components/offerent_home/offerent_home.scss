@@ -13,22 +13,50 @@
         height: 30px;
         line-height: 30px;
         padding: 5px;
-        width: 100%;
+        width: calc(100% - 10px);
+    }
+    .temp {
+        align-items: center;
+        border: solid 1px $blue_border;
+        display: flex;
+        flex-flow: column nowrap;
+        margin-bottom: 10px;
+        min-width: 568px;
+        width: 90%;
+        flex: 1;
+    }
+    .offer-state {
+        color: $white;
+        text-align: center;
+        padding: 5px;
+        width: 90px;
+    }
+    .green {
+        background-color: $green;
+    }
+    .red {
+        background-color: $red;
+    }
+    .yellow {
+        background-color: $yellow;
+    }
+    .gray {
+        background-color: $gray_text;
     }
 }
 
 .offer-filter {
-    background-color: blanchedalmond;
+    border: 1px solid $blue_border;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     margin: 5px;
     padding: 10px;
-    max-width: 80%;
+    width: 80%;
     .item {
+        flex: 1;
         display: flex;
         flex-flow: column wrap;
-        padding: 5px;
         label {
             display: inline-block;
             font-weight: bold;
@@ -40,14 +68,19 @@
             margin-right: 10px;
         }
     }
+    .button-container {
+        align-items: flex-end;
+        display: flex;
+        padding: 1px 0px;
+    }
 }
 
 .pagination-container {
     display: flex;
     flex-flow: row wrap;
     padding: 5px;
-    width: 80%;
     justify-content: center;
+    width: 80%;
     label {
         text-align: center;
         line-height: 1;
@@ -77,29 +110,39 @@
     }
 }
 
-.main-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    max-width: 80%;
-    & td {
-        background-color: $white;
-        border: 1px solid $blue_border;
-        font-size: $font-md;
-        overflow: hidden;
-        padding: 10px 5px;
-    }
-    & th {
-        background-color: $white;
-        border: 1px solid $blue_border;
-        font-size: $font-md;
-        font-weight: bold;
-        overflow: hidden;
-        padding: 10px 5px;
-    }
-    &.th-header {
-        vertical-align: top;
-    }
-    &.td-normal {
-        vertical-align: top;
+.table-container {
+    display: flex;
+    overflow: auto;
+    flex: 1;
+    justify-content: center;
+    width: 95%;
+    .main-table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        flex: 1;
+        max-width: 80%;
+        & td {
+            text-align: center !important;
+            background-color: $white;
+            border: 1px solid $blue_border;
+            font-size: $font-md;
+            overflow: hidden;
+            padding: 10px;
+        }
+        & th {
+            text-align: center !important;
+            background-color: $white;
+            border: 1px solid $blue_border;
+            font-size: $font-md;
+            font-weight: bold;
+            overflow: hidden;
+            padding: 10px;
+        }
+        &.th-header {
+            vertical-align: top;
+        }
+        &.td-normal {
+            vertical-align: top;
+        }
     }
 }

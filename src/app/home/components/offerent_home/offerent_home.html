@@ -1,6 +1,6 @@
 <section class="offerer-home">
-	<header class="mainTx thirdBg">Mis Ofertas</header>
-<!--
+
+	<!--
 <div class="page-container">
     <section class="main">
 		<header class="mainTx thirdBg">Mis Ofertas</header>
@@ -26,61 +26,108 @@
 		</table> 
 	</section>
 </div> -->
-
-	<div class="offer-filter">
-		<div class="item">
-			<label class="mainTx font-md ellipsis" title="Nombre">Nombre</label>
-			<input type="text" name="" placeholder="Nombre de la oferta">
+	<div class="temp">
+		<header class="mainTx thirdBg">Mis Ofertas</header>
+		<div class="offer-filter">
+			<div class="item">
+				<label class="mainTx font-md ellipsis" title="Nombre">Nombre</label>
+				<input type="text" name="" placeholder="Nombre de la oferta">
+			</div>
+			<div class="item">
+				<label class="mainTx font-md ellipsis" title="Fecha">Fecha</label>
+				<input type="date" name="" placeholder="Fecha de creación">
+			</div>
+			<div class="item">
+				<label class="mainTx font-md ellipsis" title="tipo">Tipo</label>
+				<select name="type">
+					<option value="-1">--Seleccione--</option>
+				</select>
+			</div>
+			<div class="item">
+				<label class="mainTx font-md ellipsis" title="Estado">Estado</label>
+				<select name="type">
+					<option value="-1">--Seleccione--</option>
+				</select>
+			</div>
+			<div class="button-container">
+				<button class="offer-detail whiteTx mainBg">Consultar</button>
+			</div>
 		</div>
-		<div class="item">
-			<label class="mainTx font-md ellipsis" title="Fecha">Fecha</label>
-			<input type="date" name="" placeholder="Fecha de creación">
+		<div class="table-container">
+			<table class="main-table">
+				<tr>
+					<th class="th-header mainTx">Convocatoria</th>
+					<th class="th-header mainTx">Tipo</th>
+					<th class="th-header mainTx">Fecha de creación</th>
+					<th class="th-header mainTx">Estado</th>
+					<th class="th-header mainTx">Detalle</th>
+				</tr>
+				<tr>
+					<td class="td-normal">2017070801</td>
+					<td class="td-normal">Beca</td>
+					<td class="td-normal">2017/07/30</td>
+					<td class="td-normal">
+						<label class="offer-state green">Abierta</label>
+					</td>
+					<td class="td-normal">
+						<button class="offer-detail whiteTx mainBg">Ver detalle</button>
+					</td>
+				</tr>
+				<tr>
+					<td class="td-normal">2017070801</td>
+					<td class="td-normal">Beca</td>
+					<td class="td-normal">2017/07/30</td>
+					<td class="td-normal">
+						<label class="offer-state red">Abierta</label>
+					</td>
+					<td class="td-normal">
+						<button class="offer-detail whiteTx mainBg">Ver detalle</button>
+					</td>
+				</tr>
+				<tr>
+					<td class="td-normal">2017070801</td>
+					<td class="td-normal">Beca</td>
+					<td class="td-normal">2017/07/30</td>
+					<td class="td-normal">
+						<label class="offer-state yellow">Abierta</label>
+					</td>
+					<td class="td-normal">
+						<button class="offer-detail whiteTx mainBg">Ver detalle</button>
+					</td>
+				</tr>
+				<tr>
+					<td class="td-normal">2017070801</td>
+					<td class="td-normal">Beca</td>
+					<td class="td-normal">2017/07/30</td>
+					<td class="td-normal">
+						<label class="offer-state gray">Abierta</label>
+					</td>
+					<td class="td-normal">
+						<button class="offer-detail whiteTx mainBg">Ver detalle</button>
+					</td>
+				</tr>
+			</table>
 		</div>
-		<div class="item">
-			<label class="mainTx font-md ellipsis" title="tipo">Tipo</label>
-			<select name="type">
-				<option value="-1">--Seleccione--</option>
-			</select>
-		</div>
-		<div class="item">
-			<label class="mainTx font-md ellipsis" title="Estado">Estado</label>
-			<select name="type">
-				<option value="-1">--Seleccione--</option>
-			</select>
+		<div class="pagination-container">
+			<label class="mainTx">Pagina {[0]} de {[0]}</label>
+			<div class="item arrow-left thirdBg">
+				<label class="mainTx">&lt;&lt;</label>
+			</div>
+			<div class="item thirdBg">
+				<label class="mainTx">1</label>
+			</div>
+			<div class="item thirdBg">
+				<label class="mainTx">2</label>
+			</div>
+			<div class="item thirdBg">
+				<label class="mainTx">3</label>
+			</div>
+			<div class="item arrow-right thirdBg">
+				<label class="mainTx">&gt;&gt;</label>
+			</div>
 		</div>
 	</div>
-	<table class="main-table">
-		<tr>
-			<th class="th-header mainTx">Convocatoria</th>
-			<th class="th-header mainTx">Tipo</th>
-			<th class="th-header mainTx">Fecha de creación</th>
-			<th class="th-header mainTx">Estado</th>
-			<th class="th-header mainTx">Detalle</th>
-		</tr>
-		<tr>
-			<td class="td-normal">2017070801</td>
-			<td class="td-normal">Beca</td>
-			<td class="td-normal">2017/07/30</td>
-			<td class="td-normal">Abierta</td>
-			<td class="td-normal">*</td>
-		</tr>
-	</table>
-	<div class="pagination-container">
-		<label class="mainTx">Pagina {[0]} de {[0]}</label>
-		<div class="item arrow-left thirdBg">
-			<span class="mainTx">&lt;&lt;</span>
-		</div>
-		<div class="item thirdBg">
-			<span class="mainTx">1</span>
-		</div>
-		<div class="item thirdBg">
-			<span class="mainTx">2</span>
-		</div>
-		<div class="item thirdBg">
-			<span class="mainTx">3</span>
-		</div>
-		<div class="item arrow-right thirdBg">
-			<span class="mainTx">&gt;&gt;</span>
-		</div>
+	<div class="button-cotainer">
+		<button type="button" class="whiteTx mainBg">Crear oferta</button>
 	</div>
 </section>
