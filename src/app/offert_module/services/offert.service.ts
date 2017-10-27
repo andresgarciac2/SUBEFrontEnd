@@ -15,7 +15,7 @@ export class OffertService {
     {
         var req = {
             method: 'POST',
-            url: 'http://localhost:8086/academicOffer',
+            url: 'http://localhost:8082/academicOffer',
             headers: {
               'Content-Type':'application/x-www-form-urlencoded',
               'TOKEN':token,
@@ -33,7 +33,7 @@ export class OffertService {
 
         var req = {
             method: 'POST',
-            url: 'http://localhost:8086/offerStep',
+            url: 'http://localhost:8082/offerStep',
             headers: {
               'Content-Type':'application/x-www-form-urlencoded',
               'TOKEN':token,
@@ -51,7 +51,7 @@ export class OffertService {
 
         var req = {
             method: 'PUT',
-            url: 'http://localhost:8086/offerStep',
+            url: 'http://localhost:8082/offerStep',
             headers: {
               'Content-Type':'application/x-www-form-urlencoded',
               'TOKEN':token,
@@ -68,7 +68,7 @@ export class OffertService {
         var req = {
             method: 'GET',
             params: {id: offerId},
-            url: 'http://localhost:8086/offerStep',
+            url: 'http://localhost:8082/offerStep',
             headers: {
               'Content-Type':'application/x-www-form-urlencoded',
               'TOKEN':token,

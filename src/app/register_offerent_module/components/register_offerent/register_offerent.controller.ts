@@ -123,7 +123,7 @@ export default class RegisterOfferentController implements ng.IComponentControll
       this.$timeout(function () {
           that.registerOfferentService.registerUser(userDto).then(
             (response: any) => {
-              that.$state.go('layout.login'); 
+              //that.$state.go('layout.login'); 
               that.notificationMessage = 'Usuario registrado exitosamente';
               that.openNotification = true;
               that.notificationTitle = "Registro exitoso";

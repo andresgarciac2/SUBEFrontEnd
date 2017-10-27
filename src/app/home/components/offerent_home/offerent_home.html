@@ -54,59 +54,25 @@
 			</div>
 		</div>
 		<div class="table-container">
-			<table class="main-table">
-				<tr>
-					<th class="th-header mainTx">Convocatoria</th>
-					<th class="th-header mainTx">Tipo</th>
-					<th class="th-header mainTx">Fecha de creación</th>
-					<th class="th-header mainTx">Estado</th>
-					<th class="th-header mainTx">Detalle</th>
-				</tr>
-				<tr>
-					<td class="td-normal">2017070801</td>
-					<td class="td-normal">Beca</td>
-					<td class="td-normal">2017/07/30</td>
-					<td class="td-normal">
-						<label class="offer-state green">Abierta</label>
-					</td>
-					<td class="td-normal">
-						<button class="offer-detail whiteTx mainBg">Ver detalle</button>
-					</td>
-				</tr>
-				<tr>
-					<td class="td-normal">2017070801</td>
-					<td class="td-normal">Beca</td>
-					<td class="td-normal">2017/07/30</td>
-					<td class="td-normal">
-						<label class="offer-state red">Abierta</label>
-					</td>
-					<td class="td-normal">
-						<button class="offer-detail whiteTx mainBg">Ver detalle</button>
-					</td>
-				</tr>
-				<tr>
-					<td class="td-normal">2017070801</td>
-					<td class="td-normal">Beca</td>
-					<td class="td-normal">2017/07/30</td>
-					<td class="td-normal">
-						<label class="offer-state yellow">Abierta</label>
-					</td>
-					<td class="td-normal">
-						<button class="offer-detail whiteTx mainBg">Ver detalle</button>
-					</td>
-				</tr>
-				<tr>
-					<td class="td-normal">2017070801</td>
-					<td class="td-normal">Beca</td>
-					<td class="td-normal">2017/07/30</td>
-					<td class="td-normal">
-						<label class="offer-state gray">Abierta</label>
-					</td>
-					<td class="td-normal">
-						<button class="offer-detail whiteTx mainBg">Ver detalle</button>
-					</td>
-				</tr>
-			</table>
+			<table ng-table="vm.table" class="main-table">
+				<thead ng-if="$data.length > 0">
+					<tr>
+						<th ng-repeat="column in vm.columns" class="th-header mainTx">
+							{{column.title}}
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="row in $data track by $index">
+						<td ng-repeat="column in vm.columns" sortable="column.field" class="td-normal">
+							<p ng-if="!column.action">{{row[column.field]}}</p>
+							<button ng-if="column.action" data-ng-click="vm.goToOfferDetail(row,column);">
+								{{row[column.field]}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table> 
 		</div>
 		<div class="pagination-container">
 			<label class="mainTx">Pagina {[0]} de {[0]}</label>

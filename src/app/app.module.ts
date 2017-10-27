@@ -18,7 +18,7 @@ import run from './app.run';
 
 angular.module('app', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngMessages',
   'ngSanitize', 'ngAria', 'angular-cache', 'angularPromiseButtons',
-  'toastr', 'pascalprecht.translate', 'ui.router', 'ngFabForm', 'rx', 'ngStorage', 'angular-jwt',
+  'toastr', 'pascalprecht.translate', 'ui.router', 'ngFabForm', 'rx', 'ngStorage', 'angular-jwt','ngTable',
   common.name, login_module.name, register_offerent_module.name, home_module.name, register_redirect_module.name,
   register_candidate_module.name, offert_module.name])
   .constant('environment', environment)

@@ -15,7 +15,7 @@ export class HomeService {;
         var req = {
             method: 'GET',
             params: {createdBy: user},
-            url: 'http://localhost:8086/academicOffer',
+            url: 'http://localhost:8082/academicOffer',
             headers: {
               'Content-Type':'application/x-www-form-urlencoded',
               'TOKEN':token,

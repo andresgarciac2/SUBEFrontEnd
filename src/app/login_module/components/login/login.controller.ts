@@ -85,6 +85,11 @@ export default class LoginController implements ng.IComponentController {
         return filteredRoles;
     }    
 
+
+    goToRegisterRedirect() : void {
+      this.$state.go('layout.registerRedirect');
+    };
+    
     validateHome():void  //angular.IPromise<boolean>
     {
         this.showMessagesService.fadeOutAll();
