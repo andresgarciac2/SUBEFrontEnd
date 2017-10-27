@@ -58,9 +58,9 @@ export function StepController($scope: any,
 
     vm.editStep = function(){
         if (vm.selectedStep !== undefined) {
+            vm.register = false;
             vm.step = vm.selectedStep;
             vm.step.offerStepConfiguration.serializeSettings = JSON.parse(vm.step.offerStepConfiguration.serializeSettings);
-            vm.register = false;
         }
             
     }

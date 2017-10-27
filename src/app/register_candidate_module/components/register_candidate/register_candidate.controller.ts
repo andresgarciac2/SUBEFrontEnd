@@ -29,6 +29,11 @@ export default class RegisterCandidateController implements ng.IComponentControl
   public rolSeleccionado = "";
   public aspirante: any = {};
   
+  public openNotification = false;
+  public notificationMessage = "";
+  public notificationTitle = "";
+  public notificationType = "";
+  
   /** @ngInject */
   constructor(private toastr: any, 
               private $translate: ng.translate.ITranslateService,
@@ -119,9 +124,18 @@ export default class RegisterCandidateController implements ng.IComponentControl
       this.$timeout(function () {
           that.registerCandidateService.registerUser(userDto).then(
             (response: any) => {
-              that.$state.go('layout.login'); 
+              //that.$state.go('layout.login'); 
+              that.notificationMessage = 'Usuario registrado exitosamente';
+              that.openNotification = true;
+              that.notificationTitle = "Registro exitoso";
+              that.notificationType = "success";
               that.showMessagesService.showInfo('Usuario registrado exitosamente!');
-            }, (error) => {});
+            }, (error) => {
+              that.notificationMessage = 'Upss tenemos problemas';
+              that.openNotification = true;
+              that.notificationTitle = "Registro fallido";
+              that.notificationType = "error";
+            });
         }, standardDelay);
       this.submitPromise = defer.promise;      
       
