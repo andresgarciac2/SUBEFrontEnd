@@ -1,1 +1,48 @@
-<button ng-click="vm.createStep()">Crear paso</button>
+<section class="offer-detail">
+    <form name="register">
+        <header class="mainTx thirdBg">Detalle de la oferta</header>
+        <section class="section">
+            <div class="item">
+                <label class="mainTx font-md font-bold ellipsis" title="Nombre">Nombre</label>
+                <label class="secondTx font-md ellipsis full-text" title="Especializacion en construccion de sofware">Especializacion en construccion de sofware</label>
+                <div class="action-container">
+                    <span class="icon_edit icon mainBg" title="Agregar el campo"></span>
+                    <span class="icon_bin icon secondBg" title="Borrar el campo"></span>
+                    <button class="whiteTx mainBg" ng-click="vm.createStep()">Agregar paso</button>
+                </div>
+            </div>
+            <div class="item">
+                <label class="mainTx font-md font-bold ellipsis" title="Area">Area</label>
+                <label class="secondTx font-md ellipsis" title="Area">Ingenieria</label>
+            </div>
+            <div class="item">
+                <label class="mainTx font-md font-bold ellipsis" title="Tipo">Tipo</label>
+                <label class="secondTx font-md ellipsis" title="Beca">Beca</label>
+            </div>
+            <div class="item">
+                <label class="mainTx font-md font-bold ellipsis" title="País">País</label>
+                <label class="secondTx font-md ellipsis" title="Colombia">Colombia</label>
+            </div>
+
+            <div class="item">
+                <label class="mainTx font-md font-bold ellipsis" title="Fecha Inicio de postulación">Fecha Inicio de postulación</label>
+                <label class="secondTx font-md ellipsis" title="2017/10/26">2017/10/26</label>
+            </div>
+            <div class="item">
+                <label class="mainTx font-md font-bold ellipsis" title="Fecha limite de postulación">Fecha limite de postulación</label>
+                <label class="secondTx font-md ellipsis" title="2017/11/26">2017/11/26</label>
+            </div>
+            <div class="item">
+                <label class="mainTx font-md font-bold ellipsis" title="Tipo de documento">Descripción</label>
+                <div class="secondTx font-md description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus sequi numquam impedit! Quae officia sapiente
+                    cupiditate quidem aliquid facilis minima magni eum consequatur, quos recusandae, ab blanditiis, ducimus
+                    doloremque velit?</div>
+            </div>
+        </section>
+    </form>
+    <div class="button-cotainer">
+        <button type="button" routerLink="/register" routerLinkActive="active" class="whiteTx secondBg"> Cancelar</button>
+        <button type="button" class="whiteTx mainBg" ng-click="vm.register()">Registrar</button>
+    </div>
+
+</section>
