@@ -1,0 +1,148 @@
+@import '../../../sass/_variables';
+@import '../../../sass/_mixins';
+.admin-home {
+    align-items: center;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+    header {
+        font-weight: bold;
+        font-size: $font-md;
+        height: 30px;
+        line-height: 30px;
+        padding: 5px;
+        width: calc(100% - 10px);
+    }
+    .admin-container {
+        align-items: center;
+        border: solid 1px $blue_border;
+        display: flex;
+        flex-flow: column nowrap;
+        margin-bottom: 10px;
+        min-width: 568px;
+        width: 90%;
+        flex: 1;
+    }
+    .admin-state {
+        color: $white;
+        text-align: center;
+        padding: 5px;
+        width: 90px;
+    }
+    .green {
+        background-color: $green;
+    }
+    .red {
+        background-color: $red;
+    }
+    .yellow {
+        background-color: $yellow;
+    }
+    .gray {
+        background-color: $gray_text;
+    }
+}
+
+.admin-filter {
+    border: 1px solid $blue_border;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 5px;
+    padding: 10px;
+    width: 80%;
+    .item {
+        flex: 1;
+        display: flex;
+        flex-flow: column wrap;
+        label {
+            display: inline-block;
+            font-weight: bold;
+            line-height: 30px;
+        }
+        input,
+        select,
+        textarea {
+            margin-right: 10px;
+        }
+    }
+    .button-container {
+        align-items: flex-end;
+        display: flex;
+        padding: 1px 0px;
+    }
+}
+
+.pagination-container {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 5px;
+    justify-content: center;
+    width: 80%;
+    label {
+        text-align: center;
+        line-height: 1;
+        padding: 10px;
+        width: 100%;
+    }
+    .item {
+        align-items: center;
+        border: 1px solid $blue_border;
+        display: flex;
+        font-weight: bold;
+        height: 20px;
+        justify-content: center;
+        width: 20px;
+        & span {
+            cursor: pointer;
+            &:hover {
+                opacity: 0.4;
+            }
+        }
+    }
+    .arrow-left {
+        border-radius: 10px 0px 0px 10px;
+    }
+    .arrow-right {
+        border-radius: 0px 10px 10px 0px;
+    }
+}
+
+.admin-table-container {
+    display: flex;
+    overflow: auto;
+    flex: 1;
+    justify-content: center;
+    width: 95%;
+    .admin-table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        flex: 1;
+        width: 100%;
+        & td {
+            text-align: center !important;
+            background-color: $white;
+            border: 1px solid $blue_border;
+            font-size: $font-md;
+            overflow: hidden;
+            padding: 10px;
+        }
+        & th {
+            text-align: center !important;
+            background-color: $white;
+            border: 1px solid $blue_border;
+            font-size: $font-md;
+            font-weight: bold;
+            overflow: hidden;
+            padding: 10px;
+        }
+        &.th-header {
+            vertical-align: top;
+        }
+        &.td-normal {
+            vertical-align: top;
+        }
+    }
+}
