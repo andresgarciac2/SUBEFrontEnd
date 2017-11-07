@@ -1,34 +1,8 @@
-<section class="offerer-home">
 <button ng-click="vm.goToEditRegister()">Editar Info</button>
-	<!--
-<div class="page-container">
-    <section class="main">
+<section class="offerer-home">
+	<div class="offerer-container">
 		<header class="mainTx thirdBg">Mis Ofertas</header>
-		<br>
-		<table ng-table="vm.table" class="table table-condensed table-bordered table-striped">
-			<thead ng-if="$data.length > 0">
-				<tr>
-					<th ng-repeat="column in vm.columns" class="text-center">
-						{{column.title}}
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="row in $data track by $index">
-					<td ng-repeat="column in vm.columns" sortable="column.field">
-						<p ng-if="!column.action">{{row[column.field]}}</p>
-						<button ng-if="column.action" data-ng-click="vm.goToOfferDetail(row,column);">
-							{{row[column.field]}}
-						</button>
-					</td>
-				</tr>
-			</tbody>
-		</table> 
-	</section>
-</div> -->
-	<div class="temp">
-		<header class="mainTx thirdBg">Mis Ofertas</header>
-		<div class="offer-filter">
+		<div class="filter-container">
 			<div class="item">
 				<label class="mainTx font-md ellipsis" title="Nombre">Nombre</label>
 				<input type="text" name="" placeholder="Nombre de la oferta">

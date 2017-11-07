@@ -38,6 +38,8 @@ body {
     font-family: "OpenSans";
     font-size: $font-sm;
     height: 100%;
+    min-width: 736px;
+    min-height: 414px;
     overflow-x: auto;
     overflow-y: auto;
     overflow: hidden;
@@ -64,6 +66,12 @@ p {
     font-weight: normal;
 }
 
+a,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
 textarea {
     outline: none;
     font: inherit;
@@ -71,48 +79,30 @@ textarea {
     border: none;
 }
 
-input,
 button,
-select {
+input,
+select,
+textarea {
     @include border_radius(3px);
-    border: none;
+    border: solid 1px $blue_border;
     font-size: $font-sm;
+    height: 26px;
     line-height: 26px;
-    max-height: 26px;
     outline: none;
     padding: 2px 6px;
-    resize: none;
 }
 
-select {
-    height: 32px;
-    line-height: 26px;
-    max-height: 32px;
+input[type="text"],
+input[type="password"],
+select,
+{
+    min-width: 130px;
 }
 
-select {
-    height: 32px;
-    line-height: 26px;
-    max-height: 32px;
-}
-
-a,
-a:visited {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
-    cursor: pointer;
-    &.mainBg:hover,
-    &.secondBg:hover {
-        opacity: 0.4;
-    }
-}
-
-.disabled {
-    pointer-events: none;
-    opacity: 0.4;
+input[type="number"] {
+    max-width: 50px;
+    text-align: center;
+    padding: 2px 1px 2px 6px;
 }
 
 input[type='date']::-webkit-inner-spin-button,
@@ -129,6 +119,32 @@ input,
 select,
 textarea {
     border: solid 1px $blue_border;
+}
+
+select {
+    height: 32px;
+    line-height: 26px;
+    max-height: 32px;
+}
+
+textarea {
+    height: 200px;
+    line-height: 150%;
+    outline: none;
+    resize: none;
+}
+
+button {
+    cursor: pointer;
+    &.mainBg:hover,
+    &.secondBg:hover {
+        opacity: 0.4;
+    }
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
 }
 
 .font-xxl {
@@ -153,6 +169,10 @@ textarea {
 
 .font-xs {
     font-size: $font-xs;
+}
+
+.font-bold {
+    font-weight: bold;
 }
 
 mark {
@@ -210,6 +230,145 @@ mark {
 
 .whiteBorder {
     border-color: $white;
+}
+
+.greenBg {
+    background-color: $green;
+}
+
+.redBg {
+    background-color: $red;
+}
+
+.yellowBg {
+    background-color: $yellow;
+}
+
+.grayBg {
+    background-color: $gray_text;
+}
+
+.errorInput {
+    border: 1px solid red !important;
+}
+
+.errorLabel {
+    background-color: red;
+    color: $white;
+    padding: 2px 5px;
+    position: absolute;
+    bottom: 0;
+    font-size: $font-md;
+    line-height: 1 !important;
+}
+
+.pagination-container {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 5px;
+    justify-content: center;
+    width: 80%;
+    label {
+        text-align: center;
+        line-height: 1;
+        padding: 10px;
+        width: 100%;
+    }
+    .item {
+        align-items: center;
+        border: 1px solid $blue_border;
+        display: flex;
+        font-weight: bold;
+        height: 20px;
+        justify-content: center;
+        width: 20px;
+        & span {
+            cursor: pointer;
+            &:hover {
+                opacity: 0.4;
+            }
+        }
+    }
+    .arrow-left {
+        border-radius: 10px 0px 0px 10px;
+    }
+    .arrow-right {
+        border-radius: 0px 10px 10px 0px;
+    }
+}
+
+.item-state {
+    color: $white;
+    text-align: center;
+    padding: 5px;
+    width: 90px;
+}
+
+.filter-container {
+    border: 1px solid $blue_border;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 5px;
+    padding: 10px;
+    width: 80%;
+    .item {
+        flex: 1;
+        display: flex;
+        flex-flow: column wrap;
+        label {
+            display: inline-block;
+            font-weight: bold;
+            line-height: 30px;
+        }
+        input,
+        select,
+        textarea {
+            margin-right: 10px;
+        }
+    }
+    .button-container {
+        align-items: flex-end;
+        display: flex;
+        padding: 1px 0px;
+    }
+}
+
+.table-container {
+    display: flex;
+    overflow: auto;
+    flex: 1;
+    justify-content: center;
+    width: 95%;
+    .main-table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        flex: 1;
+        width: 100%;
+        & td {
+            text-align: center !important;
+            background-color: $white;
+            border: 1px solid $blue_border;
+            font-size: $font-md;
+            overflow: hidden;
+            padding: 10px;
+        }
+        & th {
+            text-align: center !important;
+            background-color: $white;
+            border: 1px solid $blue_border;
+            font-size: $font-md;
+            font-weight: bold;
+            overflow: hidden;
+            padding: 10px;
+        }
+        &.th-header {
+            vertical-align: top;
+        }
+        &.td-normal {
+            vertical-align: top;
+        }
+    }
 }
 
 .onoffswitch {
