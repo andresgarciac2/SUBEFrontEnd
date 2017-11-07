@@ -5,11 +5,6 @@ export const RegisterCandidateComponent: angular.IComponentOptions = {
   controller: RegisterCandidateController,
   controllerAs: 'vm',
   bindings:{
-    reset:'=',
-    edit: '=',
-    user: '=',
-    usuario: '=',
-    brokers:'=',
-    roles:'='
+    user: '='
   }
 };

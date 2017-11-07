@@ -43,6 +43,14 @@ export function OfferentHomeController($scope: any,
       $state.go('layout.offerDetail', {offer: row})
     }
 
+    vm.goToEditRegister = function(){
+      $state.go('layout.registerOfferent', {user: vm.user});
+    }
+
+    vm.goToCreateOffer = function(){
+      $state.go('layout.offert')      
+    }
+
     vm.changeScreen = function(url: string)
     {
       $state.go('layout.' + url);

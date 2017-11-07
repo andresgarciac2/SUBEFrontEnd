@@ -23,7 +23,7 @@ export function StepController($scope: any,
         vm.step.offerStepConfiguration.serializeSettings = [{}];
         vm.step.offerStepConfiguration.offerId = $state.params['offer_id'];
         vm.step.offerId = $state.params['offer_id'];
-        vm.step.offerTransition = null;
+        vm.step.offerTransition = {};
         vm.register = true;
     }
     vm.initStep();

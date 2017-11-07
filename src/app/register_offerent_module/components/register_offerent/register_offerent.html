@@ -281,7 +281,7 @@
                 <label class="mainTx font-md ellipsis" title="Tipo de documento">Tipo de documento
                     <mark>*</mark>
                 </label>
-                <select name="dni-type" ng-model="vm.oferente.tipoDocumento">
+                <select name="dni-type" ng-model="vm.oferente.tipoDocumento" ng-disabled="vm.isEdit">
                     <option value="-1">--Seleccione--</option>
                     <option value="CC">Cedula de ciudadania</option>
                     <option value="TI">Tarjeta de identidad</option>
@@ -293,7 +293,7 @@
                 <label class="mainTx font-md ellipsis" title="Número de documento">Número de documento
                     <mark>*</mark>
                 </label>
-                <input type="text" name="" placeholder="" ng-model="vm.oferente.numeroDocumento">
+                <input type="text" name="" placeholder="" ng-disabled="vm.isEdit" ng-model="vm.oferente.numeroDocumento">
             </div>
         </section>
         <header class="mainTx thirdBg">Información de contacto</header>
@@ -327,9 +327,11 @@
 
     <div class="button-cotainer">
         <button type="button" class="whiteTx secondBg">Cancelar</button>
-        <button type="button" class="whiteTx mainBg" ng-click="vm.registerUser()">Registrar</button>
+        <button type="button" class="whiteTx mainBg" ng-click="vm.registerUser()" ng-if="!vm.isEdit">Registrar</button>
+        <button type="button" class="whiteTx mainBg" ng-click="vm.editUser()" ng-if="vm.isEdit">Editar</button>
+        
     </div>
 </section>
 
 
-<notification redirect="'layout.login'" message="vm.notificationMessage" is-open="vm.openNotification" title="vm.notificationTitle" type="vm.notificationType"></notification>
+<notification redirect="vm.isEdit ? 'layout.offerentHome' : 'layout.login'" message="vm.notificationMessage" is-open="vm.openNotification" title="vm.notificationTitle" type="vm.notificationType"></notification>

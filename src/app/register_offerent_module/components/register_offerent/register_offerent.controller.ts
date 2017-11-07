@@ -1,5 +1,6 @@
 
 import { UserDTO } from "../../dto/userDTO";
+import { UpdateUserDTO } from "../../dto/updateUserDTO";
 import { RegisterOfferentService } from '../../services/register_offerent.service';
 import { RegexPasswordService } from '../../../common/services/regex_password';
 import { ShowMessagesService } from '../../../common/services/show_messages.service';
@@ -32,6 +33,7 @@ export default class RegisterOfferentController implements ng.IComponentControll
   public notificationMessage = "";
   public notificationTitle = "";
   public notificationType = "";
+  public isEdit = false;
   
   /** @ngInject */
   constructor(private toastr: any, 
@@ -53,8 +55,26 @@ export default class RegisterOfferentController implements ng.IComponentControll
   } 
 
   $onInit() {
-  }
+    console.log(this.$state.params['user']);
+    if (this.$state.params['user'] != undefined) {
+      var that = this;
+      this.isEdit = true;
 
+      this.registerOfferentService.getUser(this.$state.params['user']).then(
+        function(response){
+          that.oferente.direccion = response.data.address;
+          that.oferente.telefono = response.data.phone;
+          that.oferente.numeroDocumento = response.data.dni;
+          that.oferente.tipoDocumento = response.data.dniType;
+          that.oferente.pais = response.data.country;
+          that.oferente.email = response.data.email;
+          that.oferente.nombres = response.data.firstName;
+        },function(reason){
+
+        }
+      );
+    }
+  }
 
     seleccionarRol() : void {
         var rol = this.rolSeleccionado;
@@ -100,6 +120,43 @@ export default class RegisterOfferentController implements ng.IComponentControll
     });;
   }
 
+  editUser(): void
+  {
+    var userDto: UpdateUserDTO = {
+      dni: this.oferente.numeroDocumento,
+      dniType: this.oferente.tipoDocumento,
+      country: this.oferente.pais,
+      email: this.oferente.email,
+      firstName: this.oferente.nombres,
+      lastName: this.oferente.apellidos !== undefined ? this.oferente.apellidos:".",
+      address: this.oferente.direccion,
+      phone: this.oferente.telefono,
+      password: this.oferente.contrasena,
+      newPassword: "",
+      roleId: this.rolSeleccionado === 'aspirante' ? 2 : 1
+    };      
+
+    var that = this;
+    var standardDelay = 1000;
+    var defer = this.$q.defer();
+    
+    this.$timeout(function () {
+        that.registerOfferentService.updateUser(userDto).then(
+          (response: any) => {
+            //that.$state.go('layout.login'); 
+            that.notificationMessage = 'Usuario actualizado exitosamente';
+            that.openNotification = true;
+            that.notificationTitle = "Actualización exitosa";
+            that.notificationType = "success";
+            that.showMessagesService.showInfo('Usuario registrado exitosamente!');
+          }, (error) => {
+            that.notificationMessage = 'Upss tenemos problemas';
+            that.openNotification = true;
+            that.notificationTitle = "Actualización fallida";
+            that.notificationType = "error";
+          });
+      }, standardDelay);
+  }
 
   registerUser(): void
   {console.log(this.oferente.numeroDocumento);
@@ -119,7 +176,7 @@ export default class RegisterOfferentController implements ng.IComponentControll
       var that = this;
       var standardDelay = 1000;
       var defer = this.$q.defer();
-
+      
       this.$timeout(function () {
           that.registerOfferentService.registerUser(userDto).then(
             (response: any) => {

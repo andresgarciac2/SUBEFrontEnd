@@ -5,11 +5,6 @@ export const RegisterOfferentComponent: angular.IComponentOptions = {
   controller: RegisterOfferentController,
   controllerAs: 'vm',
   bindings:{
-    reset:'=',
-    edit: '=',
-    user: '=',
-    usuario: '=',
-    brokers:'=',
-    roles:'='
+    user: '='
   }
 };
