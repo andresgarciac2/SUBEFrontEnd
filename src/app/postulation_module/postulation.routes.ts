@@ -5,5 +5,9 @@ export default function routes($stateProvider: angular.ui.IStateProvider,
         .state('layout.postulation', {
             url: 'postulation',
             template: '<postulation></postulation>'
+        })
+        .state('layout.currentstep', {
+            url: 'currentstep',
+            template: '<currentstep></currentstep>'
         });
 }

@@ -1,0 +1,73 @@
+@import '../../../sass/_variables';
+@import '../../../sass/_mixins';
+.currentstep {
+    align-items: center;
+    background-color: $white;
+    display: flex;
+    flex-flow: column wrap;
+    height: 100%;
+    header {
+        font-weight: bold;
+        font-size: $font-md;
+        height: 30px;
+        line-height: 30px;
+        padding: 5px;
+        width: calc(100% - 10px);
+    }
+    .currentstep-container {
+        border: solid 1px $blue_border;
+        display: flex;
+        flex-flow: column wrap;
+        margin-bottom: 10px;
+        min-width: 568px;
+        width: 90%;
+        flex: 1;
+        overflow: auto;
+        .step-title {
+            padding: 10px;
+            h2 {
+                text-align: center;
+                margin-bottom: 5px;
+                width: 100%;
+            }
+        }
+        .fields {
+            align-content: baseline;
+            border: solid 1px $blue_border;
+            display: flex;
+            flex-flow: row wrap;
+            flex: 1;
+            margin: 5px;
+            .item {
+                display: flex;
+                flex-flow: column wrap;
+                flex: 0 0 calc(50% - 10px);
+                padding: 5px;
+                label {
+                    display: inline-block;
+                    font-weight: bold;
+                    line-height: 30px;
+                }
+            }
+        }
+    }
+}
+
+.fileContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.fileContainer [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=1);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
