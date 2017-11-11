@@ -55,13 +55,14 @@ export default class LoginController implements ng.IComponentController {
               //console.log(headers('Access-Control-Allow-Credentials'));
               that.$sessionStorage.JWTtoken = {
                                                 response: response.data,
-                                                id: that.user
+                                                id: that.user,
+                                                role: that.jwtHelper.decodeToken(response.data).aud
                                               };
 
               if (that.jwtHelper.decodeToken(response.data).aud === '1') 
                 that.$state.go('layout.offerentHome'); 
               else
-                console.log('Se logeo un aspirante');
+                that.$state.go('layout.candidateHome'); 
             },function(){
               that.serviceFail = true;
             });

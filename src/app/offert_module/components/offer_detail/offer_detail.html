@@ -5,10 +5,13 @@
             <div class="item">
                 <label class="mainTx font-md font-bold ellipsis" title="Nombre">Nombre</label>
                 <label class="secondTx font-md ellipsis full-text" title="">{{vm.offer.name}}</label>
-                <div class="action-container">
+                <div class="action-container" ng-if="vm.isOfferor">
                     <span class="icon_edit icon mainBg" title="Agregar el campo"></span>
                     <span class="icon_bin icon secondBg" title="Borrar el campo"></span>
                     <button class="whiteTx mainBg" ng-click="vm.createStep()">Agregar paso</button>
+                </div>
+                <div class="action-container" ng-if="!vm.isOfferor">
+                    <button class="whiteTx mainBg" ng-click="">Postularse</button>                    
                 </div>
             </div>
             <div class="item">

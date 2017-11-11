@@ -10,11 +10,10 @@ export class HomeService {;
         //this.agregarPersonaObservable = new this.rx.Subject();
     }
 
-    public getOffersByOfferor(user: any, token: string)
+    public getOffersByOfferor(user: any, token: string, createdBy: any)
     {
         var req = {
             method: 'GET',
-            params: {createdBy: user},
             url: 'http://localhost:8082/academicOffer',
             headers: {
               'Content-Type':'application/x-www-form-urlencoded',
@@ -22,6 +21,9 @@ export class HomeService {;
               'ID':user
             }
            }
+           if (createdBy !== '') {
+               req['params'] = {createdBy: createdBy}
+           };
            
            return this.$http(req);
     }
