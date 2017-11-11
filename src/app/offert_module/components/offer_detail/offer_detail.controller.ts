@@ -18,7 +18,7 @@ export function OfferDetailController($scope: any,
     var vm = this;
                    
     vm.offer = $state.params['offer'];
-    console.log(vm.offer);
+    vm.isOfferor = $sessionStorage.JWTtoken.role == 1 ? true : false;
 
     vm.createStep = function() {
         $state.go('layout.step',{'offer_id':vm.offer.id, 'offer_name':vm.offer.name});

@@ -13,11 +13,13 @@ export function OfferentHomeController($scope: any,
 
     vm.JWTtoken = $sessionStorage.JWTtoken;
     vm.user = $sessionStorage.JWTtoken.id;
+    vm.role = $sessionStorage.JWTtoken.role;
+
     vm.columns = [{title:'Nombre', field: 'name'}, {title:'Descripción', field: 'description'}, {title:'Fecha de creación', field: 'creationDate'}, {title:'Fecha de inicio', field: 'startDate'}, {title:'Detalle', field: 'detail', action: true}];
     vm.data = [];
 
     var init = function(){
-      homeService.getOffersByOfferor(vm.user, vm.JWTtoken.response)
+      homeService.getOffersByOfferor(vm.user, vm.JWTtoken.response, vm.role == 1 ? vm.user : '')
         .then(function(response){
           vm.data = response.data;
           for (var i = 0 ; i < vm.data.length ; i++) {
