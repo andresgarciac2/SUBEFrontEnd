@@ -26,6 +26,11 @@ export default class HeaderController implements ng.IComponentController {
    this.$state.go(state);
   }
 
+  goToEditRegister = function(){
+    var layaout = this.$sessionStorage.JWTtoken.role == 1 ? 'layout.registerOfferent' : 'layout.registerCandidate';
+    this.$state.go(layaout, {user: this.$sessionStorage.JWTtoken.id});
+  }
+
   logout() : void{
     delete this.$sessionStorage.JWTtoken;
     this.$state.go('layout.login'); 

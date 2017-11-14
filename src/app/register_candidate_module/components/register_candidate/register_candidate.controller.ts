@@ -3,6 +3,8 @@ import { UserDTO } from "../../dto/userDTO";
 import { RegisterCandidateService } from '../../services/register_candidate.service';
 import { RegexPasswordService } from '../../../common/services/regex_password';
 import { ShowMessagesService } from '../../../common/services/show_messages.service';
+import { UpdateUserDTO } from "../../dto/updateUserDTO";
+
 
 export default class RegisterCandidateController implements ng.IComponentController {
 
@@ -33,6 +35,7 @@ export default class RegisterCandidateController implements ng.IComponentControl
   public notificationMessage = "";
   public notificationTitle = "";
   public notificationType = "";
+  public isEdit = false;
   
   /** @ngInject */
   constructor(private toastr: any, 
@@ -54,6 +57,25 @@ export default class RegisterCandidateController implements ng.IComponentControl
   } 
 
   $onInit() {
+    console.log(this.$state.params['user']);
+    if (this.$state.params['user'] != undefined) {
+      var that = this;
+      this.isEdit = true;
+
+      this.registerCandidateService.getUser(this.$state.params['user']).then(
+        function(response){
+          that.aspirante.direccion = response.data.address;
+          that.aspirante.telefono = response.data.phone;
+          that.aspirante.numeroDocumento = response.data.dni;
+          that.aspirante.tipoDocumento = response.data.dniType;
+          that.aspirante.pais = response.data.country;
+          that.aspirante.email = response.data.email;
+          that.aspirante.nombres = response.data.firstName;
+        },function(reason){
+
+        }
+      );
+    }
   }
 
 
@@ -101,6 +123,44 @@ export default class RegisterCandidateController implements ng.IComponentControl
     });;
   }
 
+
+  editUser(): void
+  {
+    var userDto: UpdateUserDTO = {
+      dni: this.aspirante.numeroDocumento,
+      dniType: this.aspirante.tipoDocumento,
+      country: this.aspirante.pais,
+      email: this.aspirante.email,
+      firstName: this.aspirante.nombres,
+      lastName: this.aspirante.apellidos !== undefined ? this.aspirante.apellidos:".",
+      address: this.aspirante.direccion,
+      phone: this.aspirante.telefono,
+      password: this.aspirante.contrasena,
+      newPassword: "",
+      roleId: this.rolSeleccionado === 'aspirante' ? 1 : 2
+    };      
+
+    var that = this;
+    var standardDelay = 1000;
+    var defer = this.$q.defer();
+    
+    this.$timeout(function () {
+        that.registerCandidateService.updateUser(userDto).then(
+          (response: any) => {
+            //that.$state.go('layout.login'); 
+            that.notificationMessage = 'Usuario actualizado exitosamente';
+            that.openNotification = true;
+            that.notificationTitle = "Actualización exitosa";
+            that.notificationType = "success";
+            that.showMessagesService.showInfo('Usuario registrado exitosamente!');
+          }, (error) => {
+            that.notificationMessage = 'Upss tenemos problemas';
+            that.openNotification = true;
+            that.notificationTitle = "Actualización fallida";
+            that.notificationType = "error";
+          });
+      }, standardDelay);
+  }
 
   registerUser(): void
   {console.log(this.aspirante.numeroDocumento);

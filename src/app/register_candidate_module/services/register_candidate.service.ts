@@ -1,5 +1,7 @@
 import { UserDTO } from 'register_candidate_module/dto/userDTO';  
 import { Api } from '../../common/services/api.service'; 
+import { UpdateUserDTO } from "register_candidate_module/dto/updateUserDTO";
+
 
 export class RegisterCandidateService {
 
@@ -31,6 +33,17 @@ export class RegisterCandidateService {
     {
         return this.$http.post('http://localhost:8480/create', userDto);
     }
+
+    public updateUser(userDto: UpdateUserDTO)
+    {
+        return this.$http.post('http://localhost:8480/update-user', userDto);
+    }
+
+    public getUser(userId: any)
+    {
+        return this.$http.post('http://localhost:8480/get-user', userId);
+    }
+
     public registerEntity(dto: any)
     {
         var request = {

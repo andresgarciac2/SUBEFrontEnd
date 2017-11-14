@@ -4,6 +4,9 @@ export default function routes($stateProvider: angular.ui.IStateProvider,
   $stateProvider
     .state('layout.registerCandidate', {
       url: 'registercandidate',
-      template: '<register_candidate></register_candidate>'
+      template: '<register_candidate></register_candidate>',
+      params: {
+          'user': undefined
+      }
     });
 }
