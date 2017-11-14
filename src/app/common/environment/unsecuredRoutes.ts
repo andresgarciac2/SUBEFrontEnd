@@ -13,4 +13,5 @@ export const unsecuredRoutes: string[] = [
   "layout.offerDetail",
   "layout.postulation",
   "layout.adminHome",
+  "layout.currentstep",
 ];
