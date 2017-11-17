@@ -8,6 +8,11 @@ export default function routes($stateProvider: angular.ui.IStateProvider,
         })
         .state('layout.currentstep', {
             url: 'currentstep',
-            template: '<currentstep></currentstep>'
+            template: '<currentstep></currentstep>',
+            params: {
+                'steps': [],
+                'postulation': {},
+                'offerName': ''
+            }
         });
 }

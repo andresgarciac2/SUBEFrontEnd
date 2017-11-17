@@ -66,6 +66,7 @@ export function StepController($scope: any,
     }
 
     vm.updateStep = function() {
+        //if (vm.step.offerTransition.id === undefined) vm.step.offerTransition.id = 0;
         offertService.updateStep(vm.step
             , $sessionStorage.JWTtoken.response
             , $sessionStorage.JWTtoken.id)

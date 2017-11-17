@@ -78,6 +78,30 @@ export class OffertService {
            return this.$http(req);
     }
 
+    public postulation(offerId: any, token: any, id : any, postulation: any){
+        var req = {
+            method: 'POST',
+            url: 'http://localhost:8082/postulation',
+            headers: {
+              'Content-Type':'application/x-www-form-urlencoded',
+              'TOKEN':token,
+              'ID':id
+            },
+            data: postulation
+           }   
+           return this.$http(req);
+    }
+/*
+{
+	"userId": 1,
+	"offerId": 50,
+	"creationDate" : "2017-11-13T00:00:00",
+	"currentStep" : 50,
+	"state" : 1
+	
+}
+
+*/
     public logout() {
         return this.Api.delete('/sessions', true);
     }

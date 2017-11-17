@@ -34,6 +34,7 @@ export default class RegisterOfferentController implements ng.IComponentControll
   public notificationTitle = "";
   public notificationType = "";
   public isEdit = false;
+  public differentPasswords = false;
   
   /** @ngInject */
   constructor(private toastr: any, 
@@ -132,15 +133,15 @@ export default class RegisterOfferentController implements ng.IComponentControll
       address: this.oferente.direccion,
       phone: this.oferente.telefono,
       password: this.oferente.contrasena,
-      newPassword: "",
+      newPassword: this.oferente.nuevaContrasena,
       roleId: this.rolSeleccionado === 'aspirante' ? 2 : 1
     };      
 
     var that = this;
     var standardDelay = 1000;
     var defer = this.$q.defer();
-    
-    this.$timeout(function () {
+    if (this.oferente.nuevaContrasenaConf === this.oferente.nuevaContrasena) {
+      this.$timeout(function () {
         that.registerOfferentService.updateUser(userDto).then(
           (response: any) => {
             //that.$state.go('layout.login'); 
@@ -156,6 +157,9 @@ export default class RegisterOfferentController implements ng.IComponentControll
             that.notificationType = "error";
           });
       }, standardDelay);
+    } else {
+      this.differentPasswords = true;
+    }
   }
 
   registerUser(): void

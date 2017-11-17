@@ -316,11 +316,37 @@
                 </label>
                 <input type="tel" name="" placeholder="" ng-model="vm.oferente.telefono">
             </div>
-            <div class="item">
+            <div class="item"  ng-if="!vm.isEdit">
                 <label class="mainTx font-md ellipsis" title="Contraseña">Contraseña
                     <mark>*</mark>
                 </label>
                 <input type="password" name="" placeholder="" ng-model="vm.oferente.contrasena">
+            </div>
+            <div class="item" ng-if="vm.isEdit">
+                <label class="mainTx font-md ellipsis" title="">Cambiar contraseña
+                </label>
+                <input type="checkbox" name="onoffswitch"
+                ng-model="vm.setPassword" ng-checked="false">
+            </div>
+            <div class="item"  ng-if="vm.setPassword">
+                <label class="mainTx font-md ellipsis" title="Contraseña">Actual Contraseña
+                    <mark>*</mark>
+                </label>
+                <input type="password" name="" placeholder="" ng-model="vm.oferente.contrasena">
+            </div>
+            <div class="item"  ng-if="vm.setPassword">
+                <label class="mainTx font-md ellipsis" title="Contraseña">Nueva Contraseña
+                    <mark>*</mark>
+                </label>
+                <input type="password" name="" placeholder="" ng-model="vm.oferente.nuevaContrasena">
+                <label class="errorLabel" ng-if="vm.serviceFail">Usuario o contraseña invalido</label>
+            </div>
+            <div class="item"  ng-if="vm.setPassword">
+                <label class="mainTx font-md ellipsis" title="Contraseña">Confirme Contraseña
+                    <mark>*</mark>
+                </label>
+                <input type="password" name="" placeholder="" ng-model="vm.oferente.nuevaContrasenaConf">
+                <label class="errorLabel" ng-if="vm.differentPasswords">La contraseña no coincide</label>
             </div>
         </section>
     </form>
