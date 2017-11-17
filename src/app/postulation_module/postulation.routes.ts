@@ -4,7 +4,10 @@ export default function routes($stateProvider: angular.ui.IStateProvider,
     $stateProvider
         .state('layout.postulation', {
             url: 'postulation',
-            template: '<postulation></postulation>'
+            template: '<postulation></postulation>',
+            params: {
+                'offer': {}
+            }
         })
         .state('layout.currentstep', {
             url: 'currentstep',

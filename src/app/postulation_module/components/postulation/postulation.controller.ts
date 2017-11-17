@@ -11,5 +11,8 @@ export function PostulationtController($scope: any,
     $window: any,
     $sessionStorage: any,
     StringUtils: StringUtils) {
+
     var vm = this;
+
+    vm.offer = $state.params['offer'];
 }

@@ -45,4 +45,8 @@ export function OfferDetailController($scope: any,
                 , 'offerName': vm.offer.name})
         });
     }
+
+    vm.goToOfferPostulations = function(){
+        $state.go('layout.postulation', {'offer': vm.offer});
+    }
 }
