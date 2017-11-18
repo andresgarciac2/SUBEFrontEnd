@@ -28,7 +28,7 @@ export function CurrentStepController($scope: any,
 
     var init = function(){
         vm.steps.forEach(element => {
-            if (element.id == vm.postulation.currentStep) vm.currentStep = element;
+            if (element.id == vm.postulation.currentStep.id) vm.currentStep = element;
         });
         vm.currentStep.offerStepConfiguration.serializeSettings = 
             JSON.parse(vm.currentStep.offerStepConfiguration.serializeSettings);
@@ -52,6 +52,7 @@ export function CurrentStepController($scope: any,
                 });
         });
         vm.postulation.postulationInfoList = vm.filledStep
-        postulationService.postulation(vm.postulation.offerId, vm.token, vm.userId, vm.postulation)
+        //aca cambiara
+        postulationService.postulation(vm.postulation.offer.id, vm.token, vm.userId, vm.postulation)
     }
 }

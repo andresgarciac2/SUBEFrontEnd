@@ -23,4 +23,18 @@ export class PostulationService {
            }   
            return this.$http(req);
     }
+
+    public getPostulations(offerId: any, token: any, id : any){
+        var req = {
+            method: 'GET',
+            params: {offerId: offerId},
+            url: 'http://localhost:8082/postulation',
+            headers: {
+              'Content-Type':'application/x-www-form-urlencoded',
+              'TOKEN':token,
+              'ID':id
+            }
+           }   
+           return this.$http(req);
+    }
 }

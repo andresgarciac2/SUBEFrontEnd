@@ -33,6 +33,27 @@
             </div>
         </div>
         <div class="table-container">
+                <table ng-table="vm.table" class="main-table" show-filter="true">
+                    <thead ng-if="$data.length > 0">
+                        <tr>
+                            <th ng-repeat="column in vm.columns" class="th-header mainTx">
+                                {{column.title}}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in $data track by $index">
+                            <td ng-repeat="column in vm.columns" sortable="column.field" class="td-normal">
+                                <p ng-if="!column.action">{{row[column.field]}}</p>
+                                <button ng-if="column.action" data-ng-click="vm.goToOfferDetail(row,column);">
+                                    {{row[column.field]}}
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        <!--<div class="table-container">
             <table class="main-table">
                 <tr>
                     <th class="th-header mainTx">Documento</th>
@@ -104,7 +125,7 @@
                     </td>
                 </tr>
             </table>
-        </div>
+        </div>-->
         <div class="pagination-container">
             <label class="mainTx">Pagina {[0]} de {[0]}</label>
             <div class="item arrow-left thirdBg">

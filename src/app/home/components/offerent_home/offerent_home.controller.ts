@@ -25,15 +25,17 @@ export function OfferentHomeController($scope: any,
           for (var i = 0 ; i < vm.data.length ; i++) {
             vm.data[i].detail = 'Ver detalle';
           }
-
+          
           vm.table = new NgTableParams({
-            sorting: { name: "asc" } 
+            sorting: { name: "asc" },
+            filter: {} 
           }, {         
             counts: [],
             paginationMaxBlocks: 13,
             paginationMinBlocks: 2,
             dataset: vm.data
           });
+          vm.table.isFiltersVisible = true;
         },function(reason){
           
         });

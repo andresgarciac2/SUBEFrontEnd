@@ -29,8 +29,8 @@ export function OfferDetailController($scope: any,
 
     vm.postulate = function() {
         var postulation = {
-            "userId": vm.userId,
-            "offerId": vm.offer.id,
+            "user": {"dni": vm.userId},
+            "offer": {"id":vm.offer.id},
             "creationDate" : "2017-11-13T00:00:00",
             "state" : 1
         }

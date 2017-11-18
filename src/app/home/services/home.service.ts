@@ -28,5 +28,33 @@ export class HomeService {;
            return this.$http(req);
     }
 
+    public getPostulations(token: any, id : any){
+        var req = {
+            method: 'GET',
+            params: {userId: id},
+            url: 'http://localhost:8082/postulation',
+            headers: {
+              'Content-Type':'application/x-www-form-urlencoded',
+              'TOKEN':token,
+              'ID':id
+            }
+           }   
+           return this.$http(req);
+    }
+
+    public getPostulation(token: any, id : any, postulationId: any){
+        var req = {
+            method: 'GET',
+            params: {"id": postulationId},
+            url: 'http://localhost:8082/postulation',
+            headers: {
+              'Content-Type':'application/x-www-form-urlencoded',
+              'TOKEN':token,
+              'ID':id
+            }
+           }   
+           return this.$http(req);
+    }
+
 
 }
