@@ -1,1 +1,60 @@
-home del candidato
+<section class="candidate-home">
+    <div class="candidate-container">
+        <header class="mainTx thirdBg">Listado de Postulaciones</header>
+        <div class="filter-container">
+            <div class="item">
+                <label class="mainTx font-md ellipsis" title="Buscar">Buscar</label>
+                <input type="text" name="" placeholder="Nombre, Documento, Correo, País">
+            </div>
+            <div class="item">
+                <label class="mainTx font-md ellipsis" title="Estado">Estado</label>
+                <select name="type">
+                    <option value="-1">--Seleccione--</option>
+                </select>
+            </div>
+            <div class="button-container">
+                <button class="whiteTx mainBg">Consultar</button>
+            </div>
+        </div>
+        <div class="table-container">
+            <table class="main-table">
+                <tr>
+                    <th class="th-header mainTx">Postulación</th>
+                    <th class="th-header mainTx">Nombre de la postulación</th>
+                    <th class="th-header mainTx">Estado de la postulación</th>
+                    <th class="th-header mainTx">Nombre del paso</th>
+                    <th class="th-header mainTx">Detalle</th>
+                </tr>
+                <tr>
+                    <td class="td-normal">123456789</td>
+                    <td class="td-normal">Oferta para ingenieros</td>
+                    <td class="td-normal">
+                        <label class="item-state yellowBg">Activo</label>
+                    </td>
+                    <td class="td-normal">Información basica</td>
+                    <td class="td-normal">
+                        <button class="whiteTx mainBg">Ver detalle</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="pagination-container">
+            <label class="mainTx">Pagina {[0]} de {[0]}</label>
+            <div class="item arrow-left thirdBg">
+                <label class="mainTx">&lt;&lt;</label>
+            </div>
+            <div class="item thirdBg">
+                <label class="mainTx">1</label>
+            </div>
+            <div class="item thirdBg">
+                <label class="mainTx">2</label>
+            </div>
+            <div class="item thirdBg">
+                <label class="mainTx">3</label>
+            </div>
+            <div class="item arrow-right thirdBg">
+                <label class="mainTx">&gt;&gt;</label>
+            </div>
+        </div>
+    </div>
+</section>
