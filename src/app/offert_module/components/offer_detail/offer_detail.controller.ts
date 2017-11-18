@@ -32,7 +32,6 @@ export function OfferDetailController($scope: any,
             "userId": vm.userId,
             "offerId": vm.offer.id,
             "creationDate" : "2017-11-13T00:00:00",
-            "currentStep" : 50,
             "state" : 1
         }
         let promises = [
