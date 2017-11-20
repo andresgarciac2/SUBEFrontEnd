@@ -1,6 +1,7 @@
 
 import { StringUtils } from '../../../common/services/stringUtils';
 
+
 /** @ngInject */
 export function CandidateHomeController($scope: any,
                                        toastr: any,
@@ -11,7 +12,9 @@ export function CandidateHomeController($scope: any,
                                        $http: any,
                                        StringUtils: StringUtils,
                                        NgTableParams: any,
-                                       homeService: any) {
+                                       homeService: any,
+                                       offertService: any,
+                                       $q: any) {
 
     var vm = this;
 
@@ -50,7 +53,15 @@ export function CandidateHomeController($scope: any,
     init();
 
     vm.goToPostulationDetail = function(row,column) {
-        homeService.getPostulation(vm.JWTtoken.response, vm.user, row.id);
+      let promises = [
+        homeService.getPostulation(vm.JWTtoken.response, vm.user, row.id), 
+        offertService.getSteps(row.offer.id, vm.JWTtoken.response, vm.user)];
+      
+      $q.all(promises).then((values) => {
+          $state.go('layout.currentstep', {'steps' : values[1].data
+              , 'postulation': values[0].data[0]
+              , 'offerName': row.offer.name})
+      });
     }
 
 }

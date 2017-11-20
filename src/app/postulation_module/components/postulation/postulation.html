@@ -45,7 +45,7 @@
                         <tr ng-repeat="row in $data track by $index">
                             <td ng-repeat="column in vm.columns" sortable="column.field" class="td-normal">
                                 <p ng-if="!column.action">{{row[column.field]}}</p>
-                                <button ng-if="column.action" data-ng-click="vm.goToOfferDetail(row,column);">
+                                <button ng-if="column.action" data-ng-click="vm.goToPostulationDetail(row,column);">
                                     {{row[column.field]}}
                                 </button>
                             </td>

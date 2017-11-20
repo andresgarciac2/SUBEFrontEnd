@@ -15,7 +15,8 @@ export default function routes($stateProvider: angular.ui.IStateProvider,
             params: {
                 'steps': [],
                 'postulation': {},
-                'offerName': ''
+                'offerName': '',
+                'isOfferor': false
             }
         });
 }

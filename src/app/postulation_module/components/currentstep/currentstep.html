@@ -10,11 +10,11 @@
                 <label class="mainTx font-md ellipsis" title="Nombre">{{attr.name}}
                     <mark ng-if="attr.required">*</mark>
                 </label>
-                <input ng-if="attr.type == 6" type="text" placeholder="" ng-model="attr.filledValue">
-                <input ng-if="attr.type == 4" type="number" placeholder="" ng-model="attr.filledValue">
-                <input ng-if="attr.type == 2" type="email" placeholder="" ng-model="attr.filledValue">                
-                <input ng-if="attr.type == 3" type="date" placeholder="" ng-model="attr.filledValue">                                
-                <input ng-if="attr.type == 1" type="file" placeholder="" ng-model="attr.filledValue">                                                
+                <input ng-if="attr.type == 6" type="text" placeholder="" ng-model="attr.filledValue" ng-disabled="vm.isOfferor">
+                <input ng-if="attr.type == 4" type="number" placeholder="" ng-model="attr.filledValue" ng-disabled="vm.isOfferor">
+                <input ng-if="attr.type == 2" type="email" placeholder="" ng-model="attr.filledValue" ng-disabled="vm.isOfferor">                
+                <input ng-if="attr.type == 3" type="date" placeholder="" ng-model="attr.filledValue" ng-disabled="vm.isOfferor">                                
+                <input ng-if="attr.type == 1" type="file" placeholder="" ng-model="attr.filledValue" ng-disabled="vm.isOfferor">                                                
                 <select name="dni-type" ng-if="attr.type == 5">
                         <option value="-1">--Seleccione--</option>
                 </select>
@@ -22,7 +22,8 @@
         </section>
     </form>
     <div class="button-cotainer">
-        <button type="button" class="whiteTx mainBg">Guardar</button>
-        <button type="button" class="whiteTx secondBg" ng-click="vm.sendStep()">Terminar</button>
+        <button type="button" class="whiteTx mainBg" ng-if="!vm.isOfferor">Guardar</button>
+        <button type="button" class="whiteTx secondBg" ng-click="vm.sendStep()" ng-if="!vm.isOfferor">Terminar</button>
+        <button type="button" class="whiteTx mainBg" ng-if="vm.isOfferor">Aprobar paso</button>
     </div>
 </section>

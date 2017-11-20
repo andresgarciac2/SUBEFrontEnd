@@ -14,7 +14,10 @@ export function PostulationtController($scope: any,
     $sessionStorage: any,
     StringUtils: StringUtils,
     NgTableParams: any,
-    postulationService: PostulationService) {
+    postulationService: PostulationService,
+    homeService : any,
+    offertService: any,
+    $q: any) {
 
     var vm = this;
 
@@ -35,6 +38,7 @@ export function PostulationtController($scope: any,
               vm.data[i].currentStepName = vm.data[i].currentStep.name;
               var d = new Date(vm.data[i].creationDate);
               vm.data[i].creationDate = StringUtils.formatDate(d);
+              vm.data[i].state = StringUtils.parseState(vm.data[i].state);
             }
             
             vm.table = new NgTableParams({
@@ -51,5 +55,19 @@ export function PostulationtController($scope: any,
         });
     }
     init();
+
+    vm.goToPostulationDetail = function(row,column) {
+
+      let promises = [
+        homeService.getPostulation(vm.token, vm.userId, row.id), 
+        offertService.getSteps(row.offer.id, vm.token, vm.userId)];
+      
+      $q.all(promises).then((values) => {
+          $state.go('layout.currentstep', {'steps' : values[1].data
+              , 'postulation': values[0].data[0]
+              , 'offerName': row.offer.name
+              , 'isOfferor': true})
+      });
+    }
 
 }

@@ -23,8 +23,15 @@ export function CurrentStepController($scope: any,
     vm.steps = $state.params['steps'];
     vm.postulation = $state.params['postulation'];
     vm.offerName = $state.params['offerName'];
+    vm.isOfferor = $state.params['isOfferor'];
     vm.userId = $sessionStorage.JWTtoken.id;
     vm.token = $sessionStorage.JWTtoken.response;
+
+    var getAttributeValue = function(listAttr) {
+        return listAttr.attribute.type == 6 ? listAttr.stringValue :
+        listAttr.attribute.type == 4 ? listAttr.intValue :
+        listAttr.attribute.type == 3 ? listAttr.dateValue : '';
+    }
 
     var init = function(){
         vm.steps.forEach(element => {
@@ -32,6 +39,12 @@ export function CurrentStepController($scope: any,
         });
         vm.currentStep.offerStepConfiguration.serializeSettings = 
             JSON.parse(vm.currentStep.offerStepConfiguration.serializeSettings);
+        vm.currentStep.offerStepConfiguration.serializeSettings.forEach(elementS => {
+            vm.postulation.postulationInfoList.forEach(elementP => {
+                if (elementS.name === elementP.attribute.name)
+                    elementS.filledValue = getAttributeValue(elementP);
+            });
+        });
     }
     init();
 
@@ -51,8 +64,8 @@ export function CurrentStepController($scope: any,
                     'stringValue': element.type == 6 ? element.filledValue : null,
                 });
         });
-        vm.postulation.postulationInfoList = vm.filledStep
-        //aca cambiara
+
+        vm.postulation.postulationInfoList = vm.filledStep;
         postulationService.postulation(vm.postulation.offer.id, vm.token, vm.userId, vm.postulation)
     }
 }
