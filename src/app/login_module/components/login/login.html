@@ -13,6 +13,7 @@
 
 
     <button type="button" ng-click="vm.submit()" class="login-btn mainBg whiteTx">INGRESAR</button>
-    <label class="message">¿Olvido la contraseña?</label>
+    <label class="message" ng-click="vm.isOpen = true">¿Olvido la contraseña?</label>
     <label class="message" ng-click="vm.goToRegisterRedirect();">Registrarse</label>
 </form>
+<recovery is-open="vm.isOpen"></recovery>

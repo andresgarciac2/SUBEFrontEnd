@@ -1,30 +1,30 @@
-<div class="notification-container">
+<div class="notification-container" ng-if="vm.isOpen">
     <div class="notification recovery">
         <header>
             <span class="icon_"></span>
             <label class="title">Recuperar Contraseña</label>
-            <span class="icon_cancel-circle whiteTx font-xxl close" title="Cerrar"></span>
+            <span class="icon_cancel-circle whiteTx font-xxl close" title="Cerrar" ng-click="vm.isOpen = false"></span>
         </header>
         <section class="test">
-            <div class="secondTx font-sm">Se enviará al correo electronico una contraseña temporal, la cual podra cambiar durante su proximo inicie de
+            <div ng-if="vm.showSuccesMsj" class="secondTx font-sm">Se enviará al correo electronico una contraseña temporal, la cual podra cambiar durante su proximo inicie de
                 sesión
             </div>
             <div class="item">
                 <label class="mainTx font-md font-bold ellipsis" title="Documento">Documento</label>
                 <div class="group">
                     <span class="icon_login_user icon"></span>
-                    <input type="text" placeholder="Numero de documento">
+                    <input type="text" placeholder="Numero de documento" ng-model="vm.dni">
                 </div>
             </div>
             <div class="item">
                 <label class="mainTx font-md font-bold ellipsis" title="Correo electrónico">Correo electrónico</label>
                 <div class="group">
                     <span class="icon_mail4 icon"></span>
-                    <input type="email" placeholder="Correo electrónico">
+                    <input type="email" placeholder="Correo electrónico" ng-model="vm.email">
                 </div>
             </div>
             <div class="button-container">
-                <button class="whiteTx mainBg">Enviar</button>
+                <button ng-click="vm.recovery()" class="whiteTx mainBg">Enviar</button>
             </div>
         </section>
     </div>

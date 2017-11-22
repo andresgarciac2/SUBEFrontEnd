@@ -1,6 +1,7 @@
 import { RootComponent } from './components/root/root.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { RecoveryComponent } from './components/password_recovery/recovery.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TopPanelComponent } from './components/top_panel/top_panel.component';
 import { ExportPdfComponent } from './components/export_pdf/export_pdf.component';
@@ -24,6 +25,7 @@ export default angular.module('app.common', [])
   .component('topPanel',TopPanelComponent)
   .component('exportPdf',ExportPdfComponent)
   .component('notification',NotificationComponent)
+  .component('recovery', RecoveryComponent)
   .constant('cookieConstants',cookieConstants)
   .service('sessionService',SessionService)
   .service('regexPasswordService',RegexPasswordService)

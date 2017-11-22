@@ -1,7 +1,10 @@
 import { RecoveryController } from './recovery.controller';
 
-export const NotificationComponent: angular.IComponentOptions = {
+export const RecoveryComponent: angular.IComponentOptions = {
     templateUrl: 'app/common/components/password_recovery/recovery.html',
     controller: RecoveryController,
-    controllerAs: 'vm'
+    controllerAs: 'vm',
+    bindings: {
+        isOpen: '='
+    }
 };

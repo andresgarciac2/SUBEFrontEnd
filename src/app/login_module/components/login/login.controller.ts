@@ -16,6 +16,7 @@ export default class LoginController implements ng.IComponentController {
   public submitPromise: any = false;
   public error: string = "";
   public serviceFail: boolean = false;
+  public isOpen: boolean = false;
   
   /** @ngInject */
   constructor(private toastr: any, 
