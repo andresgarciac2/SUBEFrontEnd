@@ -36,7 +36,7 @@
                 <table ng-table="vm.table" class="main-table" show-filter="true">
                     <thead ng-if="$data.length > 0">
                         <tr>
-                            <th ng-repeat="column in vm.columns" class="th-header mainTx">
+                            <th ng-repeat="column in vm.columns" filter class="th-header mainTx">
                                 {{column.title}}
                             </th>
                         </tr>

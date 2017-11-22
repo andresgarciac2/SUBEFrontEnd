@@ -39,12 +39,18 @@ export function CurrentStepController($scope: any,
         });
         vm.currentStep.offerStepConfiguration.serializeSettings = 
             JSON.parse(vm.currentStep.offerStepConfiguration.serializeSettings);
-        vm.currentStep.offerStepConfiguration.serializeSettings.forEach(elementS => {
-            vm.postulation.postulationInfoList.forEach(elementP => {
-                if (elementS.name === elementP.attribute.name)
-                    elementS.filledValue = getAttributeValue(elementP);
+        if (vm.postulation != null && vm.postulation.postulationInfoList != null) {
+            vm.currentStep.offerStepConfiguration.serializeSettings.forEach(elementS => {
+                vm.postulation.postulationInfoList.forEach(elementP => {
+                    if (elementS.name === elementP.attribute.name){
+                        console.log(elementP);
+                        elementS.id = elementP.id;
+                        console.log(elementS);
+                        elementS.filledValue = getAttributeValue(elementP);
+                    }
+                });
             });
-        });
+        }
     }
     init();
 
@@ -60,6 +66,7 @@ export function CurrentStepController($scope: any,
                     'boolValue': 1,
                     'dateValue': element.type == 3 ? element.filledValue : null,
                     'decimalValue': null,
+                    'id':element.id,
                     'intValue': element.type == 4 ? element.filledValue : null,
                     'stringValue': element.type == 6 ? element.filledValue : null,
                 });
@@ -67,5 +74,16 @@ export function CurrentStepController($scope: any,
 
         vm.postulation.postulationInfoList = vm.filledStep;
         postulationService.postulation(vm.postulation.offer.id, vm.token, vm.userId, vm.postulation)
+            .then(function(response){
+                vm.notificationMessage = "La información fue registrada exitosamente"; 
+                vm.openNotification = true; 
+                vm.notificationTitle = "Registro exitoso"; 
+                vm.notificationType = "success";
+            },function(){
+                vm.notificationMessage = "El registro de la información a fallado, por favor revise el formulario"; 
+                vm.openNotification = true; 
+                vm.notificationTitle = "Registro fallido"; 
+                vm.notificationType = "error";
+            });
     }
 }

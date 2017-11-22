@@ -9,7 +9,8 @@ export const NotificationComponent: angular.IComponentOptions = {
         isOpen: '=',
         type: '=',
         title: '=',
-        redirect: '='
+        redirect: '=',
+        params: '='
     }
   };
   

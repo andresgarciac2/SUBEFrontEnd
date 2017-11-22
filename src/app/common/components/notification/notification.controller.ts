@@ -13,7 +13,8 @@
     vm.closeModal = function() {
         vm.isOpen = false;
         if (vm.redirect !== undefined && vm.type === 'success'){
-            $state.go(vm.redirect);
+            if(vm.params !== undefined)$state.go(vm.redirect, vm.params);
+            else $state.go(vm.redirect);
         }
     }
 }
