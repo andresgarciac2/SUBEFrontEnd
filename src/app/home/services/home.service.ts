@@ -10,6 +10,22 @@ export class HomeService {;
         //this.agregarPersonaObservable = new this.rx.Subject();
     }
 
+    public updateOffer(id: any, token: string, offer: any)
+    {
+        var req = {
+            method: 'PUT',
+            url: 'http://localhost:8082/academicOffer',
+            headers: {
+              'Content-Type':'application/x-www-form-urlencoded',
+              'TOKEN':token,
+              'ID':id
+            },
+            data: offer
+           }
+           
+           return this.$http(req);/*.then(function(){...}, function(){...});*/
+    }
+
     public getOffersByOfferor(user: any, token: string, createdBy: any)
     {
         var req = {

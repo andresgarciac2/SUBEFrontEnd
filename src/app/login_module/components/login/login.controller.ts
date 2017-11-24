@@ -60,7 +60,7 @@ export default class LoginController implements ng.IComponentController {
                                                 role: that.jwtHelper.decodeToken(response.data).aud
                                               };
 
-              if (that.jwtHelper.decodeToken(response.data).aud === '1') 
+              if (that.jwtHelper.decodeToken(response.data).aud === '1' || that.jwtHelper.decodeToken(response.data).aud === '3') 
                 that.$state.go('layout.offerentHome'); 
               else
                 that.$state.go('layout.candidateHome'); 

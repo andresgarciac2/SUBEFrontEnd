@@ -42,6 +42,15 @@
 							<button ng-if="column.action" data-ng-click="vm.goToOfferDetail(row,column);">
 								{{row[column.field]}}
 							</button>
+							<div class="onoffswitch" ng-if="column.field === 'changeState'">
+								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="required{{$index + row.id}}
+								" ng-model="row.isOpen" ng-change="vm.changeOfferStatus(row)">
+								<label class="onoffswitch-label" for="required{{$index + row.id}}">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+
 						</td>
 					</tr>
 				</tbody>

@@ -54,6 +54,26 @@ export function CurrentStepController($scope: any,
     }
     init();
 
+    vm.closePostulation = function() {
+        vm.postulation.state = 0;
+        postulationService.postulation(vm.postulation.offer.id, vm.token, vm.userId, vm.postulation)
+        .then(function(response){
+            vm.notificationMessage = "La postulación ha sido cerrada correctamente"; 
+            vm.openNotification = true; 
+            vm.notificationTitle = "Postulación cerrada"; 
+            vm.notificationType = "success";
+        },function(){
+            vm.notificationMessage = "La postulación no se pudo cerrar"; 
+            vm.openNotification = true; 
+            vm.notificationTitle = "Postulación no cerrada"; 
+            vm.notificationType = "error";
+        });
+    }
+
+    vm.goToCandidateHome = function() {
+        $state.go("layout.candidateHome");
+    }
+
     vm.sendStep = function() {
         vm.currentStep.offerStepConfiguration.serializeSettings.forEach(element => {
             vm.filledStep.push(
@@ -72,13 +92,18 @@ export function CurrentStepController($scope: any,
                 });
         });
 
-        vm.postulation.postulationInfoList = vm.filledStep;
+        if(vm.currentStep.type == 0) vm.postulation.postulationInfoList = [];
+        else vm.postulation.postulationInfoList = vm.filledStep;
         postulationService.postulation(vm.postulation.offer.id, vm.token, vm.userId, vm.postulation)
             .then(function(response){
                 vm.notificationMessage = "La información fue registrada exitosamente"; 
                 vm.openNotification = true; 
                 vm.notificationTitle = "Registro exitoso"; 
                 vm.notificationType = "success";
+                if (response.data.currentStep.id == vm.postulation.currentStep.id) {
+                    response.data.state = 2;
+                    postulationService.postulation(vm.postulation.offer.id, vm.token, vm.userId, response.data);
+                }
             },function(){
                 vm.notificationMessage = "El registro de la información a fallado, por favor revise el formulario"; 
                 vm.openNotification = true; 

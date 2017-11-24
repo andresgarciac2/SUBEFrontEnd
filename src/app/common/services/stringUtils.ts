@@ -27,8 +27,20 @@ export class StringUtils {
     return day + ' ' + monthNames[monthIndex] + ' ' + year;
   }
 
+  public parseOfferState = function(state) {
+    if(state == 1) return 'Abierta'
+    if(state == 0) return 'Cerrada'
+  }
+
+  public parseOfferStateInverse = function(state) {
+    if(state == 'Abierta') return 1
+    if(state == 'Cerrada') return 0
+  }
+
   public parseState = function(state) {
     if(state == 1) return 'Activa'
+    if(state == 2) return 'Aprobada'
+    if(state == 0) return 'Rechazada'
   }
 
   /**
