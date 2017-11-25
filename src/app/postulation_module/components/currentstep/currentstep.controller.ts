@@ -71,6 +71,7 @@ export function CurrentStepController($scope: any,
     }
 
     vm.goToCandidateHome = function() {
+        console.log(vm.currentStep);
         $state.go("layout.candidateHome");
     }
 
