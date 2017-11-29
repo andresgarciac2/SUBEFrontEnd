@@ -26,6 +26,20 @@ export class HomeService {;
            return this.$http(req);/*.then(function(){...}, function(){...});*/
     }
 
+    public updateOfferor( offeror: any)
+    {
+        var req = {
+            method: 'POST',
+            url: 'http://localhost:8480/updateOfferor',
+            headers: {
+              'Content-Type':'application/x-www-form-urlencoded'
+            },
+            data: offeror
+           }
+           
+           return this.$http(req);/*.then(function(){...}, function(){...});*/
+    }
+
     public getOffersByOfferor(user: any, token: string, createdBy: any)
     {
         var req = {
@@ -40,6 +54,19 @@ export class HomeService {;
            if (createdBy !== '') {
                req['params'] = {createdBy: createdBy}
            };
+           
+           return this.$http(req);
+    }
+
+    public getOfferors()
+    {
+        var req = {
+            method: 'GET',
+            url: 'http://localhost:8480/offerors',
+            headers: {
+              'Content-Type':'application/x-www-form-urlencoded'
+            }
+           }
            
            return this.$http(req);
     }

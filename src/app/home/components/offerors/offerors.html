@@ -1,0 +1,78 @@
+<section class="offerer-home">
+	<div class="offerer-container">
+		<header class="mainTx thirdBg">Oferentes</header>
+		<div class="filter-container">
+			<div class="item">
+				<label class="mainTx font-md ellipsis" title="Nombre">Nombre</label>
+				<input type="text" name="" placeholder="Nombre de la oferta">
+			</div>
+			<div class="item">
+				<label class="mainTx font-md ellipsis" title="Fecha">Fecha</label>
+				<input type="date" name="" placeholder="Fecha de creación">
+			</div>
+			<div class="item">
+				<label class="mainTx font-md ellipsis" title="tipo">Tipo</label>
+				<select name="type">
+					<option value="-1">--Seleccione--</option>
+				</select>
+			</div>
+			<div class="item">
+				<label class="mainTx font-md ellipsis" title="Estado">Estado</label>
+				<select name="type">
+					<option value="-1">--Seleccione--</option>
+				</select>
+			</div>
+			<div class="button-container">
+				<button class="whiteTx mainBg">Consultar</button>
+			</div>
+		</div>
+		<div class="table-container">
+			<table ng-table="vm.table" class="main-table" show-filter="true">
+				<thead ng-if="$data.length > 0">
+					<tr>
+						<th ng-repeat="column in vm.columns" class="th-header mainTx">
+							{{column.title}}
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="row in $data track by $index">
+						<td ng-repeat="column in vm.columns" sortable="column.field" class="td-normal">
+							<p ng-if="!column.action">{{row[column.field]}}</p>
+							<button ng-if="column.action" data-ng-click="vm.goToOfferDetail(row,column);">
+								{{row[column.field]}}
+							</button>
+							<div class="onoffswitch" ng-if="column.field === 'changeState'">
+								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="required{{$index + row.id}}
+								" ng-model="row.isOpen" ng-change="vm.changeOfferStatus(row)">
+								<label class="onoffswitch-label" for="required{{$index + row.id}}">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="pagination-container">
+			<label class="mainTx">Pagina 1 de 1</label>
+			<div class="item arrow-left thirdBg">
+				<label class="mainTx">&lt;&lt;</label>
+			</div>
+			<div class="item thirdBg">
+				<label class="mainTx">1</label>
+			</div>
+			<div class="item thirdBg">
+				<label class="mainTx">2</label>
+			</div>
+			<div class="item thirdBg">
+				<label class="mainTx">3</label>
+			</div>
+			<div class="item arrow-right thirdBg">
+				<label class="mainTx">&gt;&gt;</label>
+			</div>
+		</div>
+	</div>
+</section>

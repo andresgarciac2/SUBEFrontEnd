@@ -27,6 +27,11 @@ export class StringUtils {
     return day + ' ' + monthNames[monthIndex] + ' ' + year;
   }
 
+  public parseOfferorState = function(state) {
+    if(state == 1) return 'Activo'
+    if(state == 0) return 'Inactivo'
+  }
+
   public parseOfferState = function(state) {
     if(state == 1) return 'Abierta'
     if(state == 0) return 'Cerrada'

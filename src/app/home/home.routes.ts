@@ -13,5 +13,9 @@ export default function routes($stateProvider: angular.ui.IStateProvider,
     .state('layout.candidateHome', {
       url: 'candidatehome',
       template: '<candidate_home></candidate_home>'
+    })
+    .state('layout.offerors', {
+      url: 'offerors',
+      template: '<offerors></offerors>'
     });
 }
